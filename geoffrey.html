@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geoffrey Jing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #faf8f5;
+      cursor: none; /* Hide default cursor for custom cursor */
+    }
+
+    /* Custom Cursor */
+    .cursor {
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor.hover {
+      width: 32px;
+      height: 32px;
+      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .cursor.link-hover {
+      width: 24px;
+      height: 24px;
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Container */
+    .geoffrey-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation */
+    .geoffrey-nav {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      display: flex;
+      gap: 32px;
+      z-index: 100;
+    }
+
+    .geoffrey-nav a {
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      text-transform: lowercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .geoffrey-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #1a1a1a;
+      transition: width 0.2s ease;
+    }
+
+    .geoffrey-nav a:hover {
+      color: #1a1a1a;
+    }
+
+    .geoffrey-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Layout - Asymmetrical */
+    .geoffrey-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 6rem;
+      padding: 0 20px;
+    }
+
+    /* Left Column - Portrait */
+    .geoffrey-left {
+      position: sticky;
+      top: 120px;
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .geoffrey-portrait {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+      will-change: transform;
+    }
+
+    .geoffrey-portrait:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .portrait-caption {
+      text-align: left;
+      font-style: italic;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* Right Column - Content */
+    .geoffrey-right {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+      padding-top: 1rem;
+    }
+
+    /* Header Section */
+    .geoffrey-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+    }
+
+    .geoffrey-tagline {
+      font-size: 16px;
+      color: #64748b;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Bio Section */
+    .geoffrey-bio {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #475569;
+      font-weight: 300;
+    }
+
+    .geoffrey-bio strong {
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    /* Section Headers */
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Interests Grid */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 0.5rem;
+    }
+
+    .interest-item {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .interest-item:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .interest-item h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: #1f2937;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .interest-item p {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    /* Links Section */
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      text-decoration: none;
+      color: #475569;
+      font-size: 13px;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .link-pill:hover {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #1f2937;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .geoffrey-footer {
+      margin-top: auto;
+      padding-top: 60px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      text-align: center;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 300;
+      margin-top: 8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .geoffrey-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-top: 4rem;
+      }
+
+      .geoffrey-left {
+        position: static;
+      }
+
+      .geoffrey-portrait {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .portrait-caption {
+        text-align: center;
+      }
+
+      .geoffrey-header h2 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .geoffrey-tagline {
+        text-align: center;
+      }
+
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .geoffrey-container {
+        padding: 60px 20px;
+      }
+
+      .geoffrey-nav {
+        position: static;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .geoffrey-header h2 {
+        font-size: 2rem;
+      }
+
+      .geoffrey-portrait {
+        max-width: 260px;
+      }
+    }
+
+    /* Re-enable cursor on mobile */
+    @media (hover: none) {
+      body {
+        cursor: auto;
+      }
+      .cursor {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+
+  <div class="geoffrey-container">
+    <nav class="geoffrey-nav">
+      <a href="index.html">home</a>
+      <a href="writing.html">writing</a>
+      <a href="mailto:geoffrey@jingtwins.com">contact</a>
+    </nav>
+
+    <div class="geoffrey-layout">
+      <div class="geoffrey-left">
+        <div class="portrait-wrapper">
+          <img src="images/geoffrey.jpg" alt="Geoffrey Jing" class="geoffrey-portrait" />
+          <p class="portrait-caption">san francisco, 2024</p>
+        </div>
+      </div>
+
+      <div class="geoffrey-right">
+        <div class="geoffrey-header">
+          <h2>Geoffrey Jing</h2>
+          <p class="geoffrey-tagline">designing systems that feel human</p>
+        </div>
+
+        <div>
+          <div class="section-label">About</div>
+          <div class="geoffrey-bio">
+            <p>
+              Hi, I'm Geoffrey.<br>
+              <strong>I design and build digital experiences.</strong><br><br>
+              Currently exploring the intersection of design systems, human-computer interaction, and the subtle art of making technology feel less like technology. I believe in building products that are both beautiful and functional, with an emphasis on clarity and restraint.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Current Focus</div>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <h4>Design Systems</h4>
+              <p>Building scalable, accessible design languages that work across platforms and contexts.</p>
+            </div>
+            <div class="interest-item">
+              <h4>Interaction Design</h4>
+              <p>Exploring micro-interactions and the psychology of how people engage with digital interfaces.</p>
+            </div>
+            <div class="interest-item">
+              <h4>Product Thinking</h4>
+              <p>Understanding user needs and translating insights into meaningful product experiences.</p>
+            </div>
+            <div class="interest-item">
+              <h4>Web Aesthetics</h4>
+              <p>Studying minimalism, typography, and the craft of creating calm digital spaces.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Links</div>
+          <div class="links-row">
+            <a href="#" class="link-pill">Twitter</a>
+            <a href="#" class="link-pill">LinkedIn</a>
+            <a href="#" class="link-pill">GitHub</a>
+            <a href="mailto:geoffrey@jingtwins.com" class="link-pill">Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="geoffrey-footer">
+      <p>&copy; Jing Twins <span id="currentYear"></span></p>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Custom Cursor
+    (function() {
+      const cursor = document.querySelector('.cursor');
+      if (!cursor) return;
+
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
+
+      // Update mouse position
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Smooth cursor animation
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.1;
+        cursorY += (mouseY - cursorY) * 0.1;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Hover effects
+      const hoverElements = document.querySelectorAll('a, button, .interest-item');
+      hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          if (el.tagName === 'A' || el.classList.contains('link-pill')) {
+            cursor.classList.add('link-hover');
+          } else {
+            cursor.classList.add('hover');
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover', 'link-hover');
+        });
+      });
+    })();
+
+    // Subtle parallax on scroll for portrait
+    (function() {
+      const portrait = document.querySelector('.geoffrey-portrait');
+      if (!portrait) return;
+
+      let ticking = false;
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * 0.05;
+        
+        if (scrolled < 600) {
+          portrait.style.transform = `translateY(${rate}px)`;
+        }
+        
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestTick, { passive: true });
+    })();
+
+    // Fade in elements on scroll
+    (function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 50);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const elements = document.querySelectorAll('.interest-item, .link-pill');
+      elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
