@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes — Albert Jing</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: #dfe5e1;
+        }
+
+        .albert-page {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .albert-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .belief-content {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text-primary);
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .belief-content strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 16px;  /* ← Change quote font size here (line 74) */
+            color: var(--text-primary);
+            margin-bottom: 1.2em;
+            margin-top: 0;
+            display: block;
+            border-left: 2px solid var(--border-color);
+            padding-left: 8px;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-style: normal;
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 0.5em;
+        }
+
+        .belief-section {
+            margin-bottom: 4em;
+            padding-bottom: 3em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .belief-section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .belief-section p {
+            margin-bottom: 1em;
+        }
+
+        .belief-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .belief-section .explanation {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .belief-section .quote + .explanation {
+            margin-top: 1.5em;
+        }
+
+        .belief-content a {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-decoration-color: var(--border-color);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .belief-content a:hover {
+            color: var(--text-secondary);
+            text-decoration-color: var(--text-secondary);
+        }
+
+        .albert-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .albert-page {
+                padding: 60px 20px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .belief-content {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="albert-page">
+    <div class="albert-container">
+        <a href="../albert.html" class="back-link">back</a>
+
+        <h1 class="page-title">Quotes</h1>
+
+        <div class="belief-content">
+            <div class="belief-section">
+                <p class="quote">"If friends were money id rather have four quarters than ninety nine pennies." <span class="quote-author">—Al Capone</span></p>
+                <div class="explanation">
+                    <p>I don't glorify gangsters or crime. But objectively speaking his strategic thinking and relationship building are things to learn from.</p>
+                    <p>Always agreed with his take here. Keep a penny or two in your life though. A penny never seems to matter until the day you're short just one cent. Plus, if worst comes to worst, losing a penny hurts your bank much less than a quarter. Choose your pennies and quarters carefully, and understand unlike metal coins, the currency of friendship can change form and value.</p>
+                </div>
+            </div>
+
+            <div class="belief-section">
+                <p class="quote">"When you start walking with God, people will stop walking with you. Not because they don't like you, but because you're about to sacrifice things, that they won't sacrifice." <span class="quote-author">—David Goggins, Chief Petty Officer</span></p>
+                <div class="explanation">
+                    <p>I am a huge fan of David Goggins, of his story, of his discipline, of his mentality.</p>
+                    <p>I find often times when I work hard on something, the majority of people either a) doubt me b) downplay my effort or outlook to deal with their insecurities or c) flat out don't understand the point. I have wasted a lot of time in the past trying to find people who did not fit these reaction groups or prove them wrong. It took me a while to realize <strong>no one</strong> high-fives you when you're preparing for a 100 mile race. They high-five you after you complete it.</p>
+                </div>
+            </div>
+
+            <div class="belief-section">
+                <p class="quote">"Your older self is counting on you, your younger self is believing in you."</p>
+            </div>
+
+            <div class="belief-section">
+                <p class="quote">"The magic you are looking for is in the work you are avoiding."</p>
+                <div class="explanation">
+                    <p>I looked for the magic so many times in life. It never came. And then I had to work so I did and the magic always came.</p>
+                </div>
+            </div>
+
+            <div class="belief-section">
+                <p class="quote">"Do not to confuse movement with progress. Treading in a strong current will keep you in the same spot."</p>
+                <div class="explanation">
+                    <p>That's true, you can be moving and not actually get anywhere. But sometimes, even when you're not moving forward, when you're treading water in a strong current, you're still building strength.</p>
+                    <p>Your stamina, discipline, and endurance grow. When that current eases, you'll move faster and farther than before, because you've been accelerating the whole time.</p>
+                    <p><strong>Acceleration > Velocity > Displacement.</strong></p>
+                    <p>Focus less on how far you've gone, and more on how much you're growing your capacity to move.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="albert-footer">
+            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

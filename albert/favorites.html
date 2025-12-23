@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites — Albert Jing</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: #dfe5e1;
+        }
+
+        .albert-page {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .albert-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--text-primary);
+            color: #dfe5e1;
+            border-color: var(--text-primary);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .section-content p {
+            margin-bottom: 1em;
+        }
+
+        .section-content strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .sports-item {
+            margin-bottom: 1.5em;
+            padding-bottom: 1.5em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sports-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sports-category {
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .sports-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sports-list li {
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        .books-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .books-list li {
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        .favorites-item[data-category] {
+            display: block;
+        }
+
+        .favorites-item.hidden {
+            display: none;
+        }
+
+        .albert-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .albert-page {
+                padding: 60px 20px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .filter-buttons {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="albert-page">
+    <div class="albert-container">
+        <a href="../albert.html" class="back-link">back</a>
+
+        <h1 class="page-title">Favorites</h1>
+
+        <div class="section">
+            <h2 class="section-title">Sports</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="play-social">play & social</button>
+                <button class="filter-btn" data-filter="exercise">exercise</button>
+                <button class="filter-btn" data-filter="entertainment">entertainment</button>
+                <button class="filter-btn" data-filter="all">all</button>
+            </div>
+            <div class="section-content">
+                <div class="sports-item favorites-item" data-category="play-social">
+                    <span class="sports-category">Play & Social</span>
+                    <ul class="sports-list">
+                        <li>golf</li>
+                        <li>tennis</li>
+                        <li>basketball</li>
+                        <li>bouldering</li>
+                        <li>jiu-jitsu</li>
+                        <li>badminton</li>
+                        <li>ping pong</li>
+                        <li>bowling</li>
+                        <li>ultimate</li>
+                    </ul>
+                </div>
+
+                <div class="sports-item favorites-item" data-category="exercise">
+                    <span class="sports-category">Exercise</span>
+                    <ul class="sports-list">
+                        <li>tennis</li>
+                        <li>boxing</li>
+                        <li>cycling</li>
+                    </ul>
+                </div>
+
+                <div class="sports-item favorites-item" data-category="entertainment">
+                    <span class="sports-category">Entertainment (Watching)</span>
+                    <ul class="sports-list">
+                        <li>golf (PGA, LIV, and YouTube)</li>
+                        <li>tennis (old big three and new big two)</li>
+                        <li>basketball (NBA and sometimes college)</li>
+                        <li>boxing and MMA (Naoya/Crawford/Usyk/Tank, Islam/Pereira, and Jake Paul)</li>
+                        <li>occasionally soccer and F1</li>
+                        <li>olympic table tennis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Books</h2>
+            <div class="section-content">
+                <ul class="books-list">
+                    <li>The Elephant in the Brain</li>
+                    <li>Courage to Be Disliked</li>
+                    <li>Mastery</li>
+                    <li>I Will Teach You to Be Rich</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="albert-footer">
+            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Filter functionality
+        (function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.favorites-item[data-category]');
+
+            // Initialize with play-social filter active
+            items.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (category !== 'play-social') {
+                    item.classList.add('hidden');
+                }
+            });
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter only sports items (items with data-category attribute)
+                    items.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

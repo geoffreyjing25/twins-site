@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beliefs — Albert Jing</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: #dfe5e1;
+        }
+
+        .albert-page {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .albert-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .belief-content {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text-primary);
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .belief-content strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 17px;  /* ← Change quote font size here (line 74) */
+            color: var(--text-primary);
+            margin-bottom: 1.2em;
+            margin-top: 0;
+            display: block;
+            border-left: 2px solid var(--border-color);
+            padding-left: 8px;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-style: normal;
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 0.5em;
+        }
+
+        .belief-section {
+            margin-bottom: 4em;
+            padding-bottom: 3em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .belief-section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .belief-section p {
+            margin-bottom: 1em;
+        }
+
+        .belief-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .belief-section .explanation {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .belief-section .quote + .explanation {
+            margin-top: 1.5em;
+        }
+
+        .belief-content a {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-decoration-color: var(--border-color);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .belief-content a:hover {
+            color: var(--text-secondary);
+            text-decoration-color: var(--text-secondary);
+        }
+
+        .albert-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .albert-page {
+                padding: 60px 20px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .belief-content {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="albert-page">
+    <div class="albert-container">
+        <a href="../albert.html" class="back-link">back</a>
+
+        <h1 class="page-title">Beliefs</h1>
+
+        <div class="belief-content">
+            <div class="belief-section">
+                <p><strong>A few beliefs I feel strongly on (formulated from books, personal anecdotes, and my brother)</strong></p>
+                <div class="explanation">
+                    <p>There are many things in life that are good for me that I hate doing. Some examples: studying in school (certain subjects I liked, certain ones I <em>hated</em>), eating clean (kale tastes so bad to me), prioritizing work over fun, working out after a 14 hour workday. I know a lot of these others don't like doing either. And I may not like doing them, but I still do it. And I sleep well at night knowing I didn't let my softness get in the way of my progression. Same way Mike Tyson slept well at night knowing he's the only one waking up at 4 to run miles.</p>
+                    <p>Automate/habitualize as many things you hate as you can. You have a set amount of willpower every day (read Willpower by Tierney and Baumeister), and the more you spend it debating if you should do something the less stuff you get done. I may hate cardio and a cold shower in the morning, but if I make that habit as tight as brushing my teeth my willpower remains untouched. Spend your precious willpower on the big decisions, not on whether you should brush your teeth.</p>
+                    <p><a href="https://www.notion.so/Temperance-is-the-best-anti-corruption-medication-2c76eca35e4b80a1a322e2bf8798c5e6?pvs=21">Temperance is the best anti-corruption medication.</a></p>
+                    <p>Every single high caliber man that falls in any dimension failed to practice temperance.</p>
+                    <p>If you are selfish, be a good person. It's the best way to serve yourself.</p>
+                    <p>Your outer appearance is a walking billboard. You can advertise whatever you want. Dress well, get in shape, take care of your hygiene, if you want to advertise the best version of yourself. The very first layer of a first impression is initial visual impression (your walking billboard).</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="albert-footer">
+            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

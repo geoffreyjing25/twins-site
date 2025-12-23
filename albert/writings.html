@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writings — Albert Jing</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: #dfe5e1;
+        }
+
+        .albert-page {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .albert-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .writings-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .writing-item {
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .writing-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .writing-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .writing-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .writing-title a:hover {
+            color: var(--text-secondary);
+        }
+
+        .writing-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .writing-excerpt {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .albert-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .albert-page {
+                padding: 60px 20px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .writing-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="albert-page">
+    <div class="albert-container">
+        <a href="../albert.html" class="back-link">back</a>
+
+        <h1 class="page-title">Writings</h1>
+
+        <ul class="writings-list">
+            <li class="writing-item">
+                <h2 class="writing-title">
+                    <a href="writings/on-college.html">On college (the importance and insignificance)</a>
+                </h2>
+                <p class="writing-meta">Oct 2025</p>
+                <p class="writing-excerpt">
+                    Thoughts on higher education, dropping out, and finding your path. Written from the perspective of someone who went to a T10 liberal arts college.
+                </p>
+            </li>
+        </ul>
+
+        <footer class="albert-footer">
+            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
