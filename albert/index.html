@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Albert Jing</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    body {
+      background-color: #dfe5e1;
+    }
+
+    /* portrait shape & spacing */
+    .portrait {
+      width: 350px; /* slightly larger */
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 6rem auto 0.75rem; /* tightened bottom margin before caption */
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* toggle to rectangle by adding "is-rect" class */
+    .portrait.is-rect {
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
+    }
+
+    /* small caption under image */
+    .caption {
+      text-align: center;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 2rem; /* space before name */
+      transition: opacity 0.3s ease;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin: 0 0 0.4rem; /* slightly less margin for tighter spacing */
+      text-align: center;
+    }
+
+    .age-line {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 0.6rem; /* reduced spacing to balance tagline gap */
+    }
+
+    .tagline {
+      text-align: center;
+      color: #6b7280;
+      margin: 0 0 1.5rem;
+    }
+
+    .bio {
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      color: #475569;
+      text-align: left;
+    }
+
+    b, strong {
+      font-weight: 700;
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="personal-nav">
+      <a href="#" class="link">about</a>
+      <a href="/albert/writings" class="link">writings</a>
+      <a href="/albert/quotes" class="link">quotes</a>
+      <a href="/albert/beliefs" class="link">beliefs</a>
+      <a href="/albert/favorites" class="link">favorites</a>
+    </nav>
+
+    <div class="personal-layout">
+      <!-- Add "is-rect" here if you want a rectangular portrait -->
+      <img src="../images/alb1.png" data-alt="../images/albert_2.jpg" alt="Albert Jing" class="portrait is-rect" id="albertImage" />
+      <p class="caption" id="imageCaption">ninh binh, vietnam. 2024</p>
+
+      <h2>Albert Jing</h2>
+      <p class="age-line">age: <span id="ageLive">—</span></p>
+      <p class="tagline">the last generalist standing</p>
+
+      <p class="bio">
+        Hi I'm Albert.<br>
+        <strong>I thoroughly enjoy a good river walk.</strong><br>
+        Currently exploring mechanism design & incentive compatibility (game theory), productized defense-tech, and distributed control in autonomous systems.
+      </p>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; Jing Twins <span id="currentYear"></span></p>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Live age calculator (vanilla JS)
+    (function () {
+      const out = document.getElementById('ageLive');
+      if (!out) return;
+
+      const divisor = 365.2421897 * 24 * 60 * 60 * 1000;
+      const birthTime = new Date('2003-05-09T09:20:00');
+
+      function tick() {
+        const years = (Date.now() - birthTime.getTime()) / divisor;
+        out.textContent = years.toFixed(8);
+      }
+
+      tick();
+      const timer = setInterval(tick, 25);
+      window.addEventListener('beforeunload', () => clearInterval(timer));
+    })();
+
+    // Image hover swap
+    const img = document.getElementById('albertImage');
+    const caption = document.getElementById('imageCaption');
+
+    if (img && caption) {
+      const originalSrc = img.getAttribute('src');
+      const hoverSrc = img.getAttribute('data-alt');
+      const originalCaption = 'ninh binh, vietnam. 2024';
+      const hoverCaption = 'river in chengdu, china. 2024';
+
+      img.addEventListener('mouseenter', () => {
+        img.src = hoverSrc;
+        caption.style.opacity = '0';
+        setTimeout(() => {
+          caption.textContent = hoverCaption;
+          caption.style.opacity = '1';
+        }, 200);
+      });
+
+      img.addEventListener('mouseleave', () => {
+        img.src = originalSrc;
+        caption.style.opacity = '0';
+        setTimeout(() => {
+          caption.textContent = originalCaption;
+          caption.style.opacity = '1';
+        }, 200);
+      });
+    }
+  </script>
+</body>
+</html>
