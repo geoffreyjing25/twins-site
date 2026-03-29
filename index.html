@@ -61,15 +61,19 @@
       background-color: var(--text-primary);
       color: var(--bg-primary);
     }
+
+    /* Magnetic char effect */
+    .char {
+      display: inline-block;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="index-layout">
       <div class="index-content">
-        <h1>
-          <a href="/albert" class="name-link">Albert</a> & <a href="/geoffrey" class="name-link">Geoffrey</a> Jing
-        </h1>
+        <h1 id="titleName"><a href="/albert" class="name-link">Albert</a> & <a href="/geoffrey" class="name-link">Geoffrey</a> Jing</h1>
         <p class="intro">
           twin brothers building and learning.<br />
           current fascinations: mechanics of agency, post-impressionalism art & design, discipline of restraint, and gravitas.
@@ -126,5 +130,66 @@
       }, 200);
     });
   </script>
+
+  <script>
+    // ---- Preload hover image so swap is instant ----
+    var preload = new Image();
+    preload.src = document.getElementById('twinsImage').getAttribute('data-alt');
+
+    // ---- Magnetic text: chars subtly pull toward cursor ----
+    function wrapCharsInNode(node) {
+      var nodes = Array.from(node.childNodes);
+      nodes.forEach(function (child) {
+        if (child.nodeType === 3) {
+          var text = child.textContent;
+          var frag = document.createDocumentFragment();
+          text.split('').forEach(function (c) {
+            var s = document.createElement('span');
+            s.className = 'char';
+            s.textContent = c === ' ' ? '\u00A0' : c;
+            frag.appendChild(s);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          wrapCharsInNode(child);
+        }
+      });
+    }
+
+    var titleEl = document.getElementById('titleName');
+    wrapCharsInNode(titleEl);
+
+    var chars = titleEl.querySelectorAll('.char');
+    var magneticRAF = null;
+    var mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!magneticRAF) {
+        magneticRAF = requestAnimationFrame(updateMagnetic);
+      }
+    });
+
+    function updateMagnetic() {
+      magneticRAF = null;
+      for (var i = 0; i < chars.length; i++) {
+        var ch = chars[i];
+        var rect = ch.getBoundingClientRect();
+        var chX = rect.left + rect.width / 2;
+        var chY = rect.top + rect.height / 2;
+        var distX = mouseX - chX;
+        var distY = mouseY - chY;
+        var dist = Math.sqrt(distX * distX + distY * distY);
+        if (dist < 200) {
+          var strength = (1 - dist / 200) * 8;
+          ch.style.transform = 'translate(' + (distX / dist) * strength + 'px, ' + (distY / dist) * strength + 'px)';
+        } else if (ch.style.transform) {
+          ch.style.transform = '';
+        }
+      }
+    }
+  </script>
+  <script src="cursor.js"></script>
 </body>
 </html>
