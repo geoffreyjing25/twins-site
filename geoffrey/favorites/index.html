@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites — Geoffrey Jing</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../geoffrey.css" />
+  <style>
+    .fav-header {
+      margin-top: 120px;
+      margin-bottom: 60px;
+    }
+
+    .fav-body {
+      margin-bottom: 100px;
+    }
+
+    /* ---- Category section ---- */
+    .fav-section {
+      margin-bottom: 72px;
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--g-border);
+    }
+
+    .fav-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fav-section-title {
+      font-family: var(--g-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--g-text);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .fav-section-desc {
+      font-size: 0.88rem;
+      color: var(--g-text-muted);
+      font-weight: 300;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* ---- Pill tags ---- */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      color: #666;
+      background: var(--g-bg-card);
+      border: 1px solid var(--g-border-light);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-weight: 300;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tag:hover {
+      background: rgba(255,255,255,0.8);
+      color: var(--g-text);
+      border-color: var(--g-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    /* ---- Ranked list ---- */
+    .ranked-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ranked-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      transition: padding-left 0.3s ease;
+    }
+
+    .ranked-item:hover {
+      padding-left: 8px;
+    }
+
+    .ranked-item:last-child {
+      border-bottom: none;
+    }
+
+    .ranked-rank {
+      font-family: var(--g-mono);
+      font-size: 0.58rem;
+      color: var(--g-border);
+      min-width: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .ranked-item:hover .ranked-rank {
+      color: var(--g-accent);
+    }
+
+    .ranked-name {
+      font-size: 0.95rem;
+      color: var(--g-text);
+      font-weight: 400;
+    }
+
+    .ranked-detail {
+      font-size: 0.78rem;
+      color: var(--g-text-muted);
+      font-weight: 300;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ---- Grid cards ---- */
+    .fav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fav-card {
+      background: var(--g-bg-card);
+      border: 1px solid var(--g-border-light);
+      border-radius: 10px;
+      padding: 22px;
+      transition: all 0.3s ease;
+    }
+
+    .fav-card:hover {
+      background: rgba(255,255,255,0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .fav-card-label {
+      font-family: var(--g-mono);
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--g-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .fav-card-value {
+      font-family: var(--g-serif);
+      font-size: 1.1rem;
+      color: var(--g-text);
+    }
+
+    /* ---- Fade-in ---- */
+    .fav-section {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .fav-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    @media (max-width: 768px) {
+      .fav-header { margin-top: 100px; }
+      .fav-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="g-page">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="g-nav">
+    <a href="/geoffrey" class="g-nav-brand">Geoffrey Jing</a>
+    <div class="g-nav-links">
+      <a href="/">home</a>
+      <a href="/geoffrey/about">about</a>
+      <a href="/geoffrey/quotes">quotes</a>
+      <a href="/geoffrey/readings">readings</a>
+      <a href="/geoffrey/favorites" class="active">favorites</a>
+    </div>
+  </nav>
+
+  <div class="g-container">
+
+    <section class="fav-header">
+      <a href="/geoffrey" class="g-back">geoffrey</a>
+      <h1 class="g-page-title">Favorites</h1>
+      <p class="g-page-subtitle">Things I keep coming back to.</p>
+    </section>
+
+    <div class="fav-body">
+
+      <!-- Sports -->
+      <div class="fav-section">
+        <p class="g-label">Athletics</p>
+        <h2 class="fav-section-title">Sports</h2>
+        <p class="fav-section-desc">Ten and counting. Some for competition, some for craft, all for the feeling of being in motion.</p>
+        <div class="tag-cloud">
+          <span class="tag">Tennis</span>
+          <span class="tag">Basketball</span>
+          <span class="tag">Golf</span>
+          <span class="tag">Boxing</span>
+          <span class="tag">Bouldering</span>
+          <span class="tag">Cycling</span>
+          <span class="tag">Badminton</span>
+          <span class="tag">Ping Pong</span>
+          <span class="tag">Bowling</span>
+          <span class="tag">Ultimate</span>
+        </div>
+      </div>
+
+      <!-- Athletes -->
+      <div class="fav-section">
+        <p class="g-label">People I study</p>
+        <h2 class="fav-section-title">Athletes</h2>
+        <p class="fav-section-desc">Performance under pressure. Longevity over hype.</p>
+        <ul class="ranked-list">
+          <li class="ranked-item">
+            <span class="ranked-rank">01</span>
+            <span class="ranked-name">Eliud Kipchoge</span>
+            <span class="ranked-detail">Marathon</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">02</span>
+            <span class="ranked-name">Tiger Woods</span>
+            <span class="ranked-detail">Golf</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">03</span>
+            <span class="ranked-name">Su Bingtian</span>
+            <span class="ranked-detail">Sprint</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">04</span>
+            <span class="ranked-name">Novak Djokovic</span>
+            <span class="ranked-detail">Tennis</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">05</span>
+            <span class="ranked-name">Naoya Inoue</span>
+            <span class="ranked-detail">Boxing</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick favorites -->
+      <div class="fav-section">
+        <p class="g-label">Miscellaneous</p>
+        <h2 class="fav-section-title">Quick Picks</h2>
+        <div class="fav-grid">
+          <div class="fav-card">
+            <div class="fav-card-label">Season</div>
+            <div class="fav-card-value">Autumn</div>
+          </div>
+          <div class="fav-card">
+            <div class="fav-card-label">Time of day</div>
+            <div class="fav-card-value">Early morning</div>
+          </div>
+          <div class="fav-card">
+            <div class="fav-card-label">Sound</div>
+            <div class="fav-card-value">Rain on a window</div>
+          </div>
+          <div class="fav-card">
+            <div class="fav-card-label">Drink</div>
+            <div class="fav-card-value">Black coffee</div>
+          </div>
+          <div class="fav-card">
+            <div class="fav-card-label">Workout</div>
+            <div class="fav-card-value">Tennis at sunset</div>
+          </div>
+          <div class="fav-card">
+            <div class="fav-card-label">Concept</div>
+            <div class="fav-card-value">Compound interest</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watching -->
+      <div class="fav-section">
+        <p class="g-label">Spectating</p>
+        <h2 class="fav-section-title">What I Watch</h2>
+        <p class="fav-section-desc">Sport as performance art.</p>
+        <ul class="ranked-list">
+          <li class="ranked-item">
+            <span class="ranked-rank">01</span>
+            <span class="ranked-name">Golf</span>
+            <span class="ranked-detail">PGA, LIV, YouTube</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">02</span>
+            <span class="ranked-name">Tennis</span>
+            <span class="ranked-detail">Grand Slams</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">03</span>
+            <span class="ranked-name">Basketball</span>
+            <span class="ranked-detail">NBA</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">04</span>
+            <span class="ranked-name">Boxing &amp; MMA</span>
+            <span class="ranked-detail">Inoue, Crawford, Islam</span>
+          </li>
+          <li class="ranked-item">
+            <span class="ranked-rank">05</span>
+            <span class="ranked-name">Table Tennis</span>
+            <span class="ranked-detail">Olympic</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <footer class="g-footer">
+      <span>&copy; Geoffrey Jing <span id="currentYear"></span></span>
+      <span class="g-footer-right">est. may 9, 2003</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    (function () {
+      var sections = document.querySelectorAll('.fav-section');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+  <script src="../../cursor.js"></script>
+</body>
+</html>

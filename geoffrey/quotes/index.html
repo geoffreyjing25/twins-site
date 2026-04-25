@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quotes — Geoffrey Jing</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../geoffrey.css" />
+  <style>
+    .quotes-header {
+      margin-top: 120px;
+      margin-bottom: 60px;
+    }
+
+    .quotes-count {
+      font-family: var(--g-mono);
+      font-size: 0.65rem;
+      color: var(--g-text-muted);
+      letter-spacing: 0.08em;
+      margin-top: 8px;
+    }
+
+    /* ---- Quote list ---- */
+    .quotes-body {
+      margin-bottom: 100px;
+    }
+
+    .quote-item {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--g-border);
+      position: relative;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .quote-item:first-child {
+      border-top: 1px solid var(--g-border);
+    }
+
+    .quote-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Hover indent */
+    .quote-item-inner {
+      padding-left: 0;
+      transition: padding-left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .quote-item:hover .quote-item-inner {
+      padding-left: 16px;
+    }
+
+    /* Quote text — vary sizes for emphasis */
+    .quote-text {
+      font-family: var(--g-serif);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--g-text);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .quote-text.large {
+      font-size: clamp(1.4rem, 2.5vw, 1.7rem);
+    }
+
+    .quote-text.medium {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .quote-text.small {
+      font-size: 1.05rem;
+    }
+
+    .quote-author {
+      font-family: var(--g-mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--g-text-muted);
+      margin-top: 12px;
+      display: block;
+    }
+
+    /* Quote number */
+    .quote-num {
+      font-family: var(--g-mono);
+      font-size: 0.58rem;
+      color: var(--g-border);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .quote-item:hover .quote-num {
+      color: var(--g-accent);
+    }
+
+    @media (max-width: 768px) {
+      .quotes-header { margin-top: 100px; }
+      .quote-item { padding: 28px 0; }
+    }
+  </style>
+</head>
+<body class="g-page">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="g-nav">
+    <a href="/geoffrey" class="g-nav-brand">Geoffrey Jing</a>
+    <div class="g-nav-links">
+      <a href="/">home</a>
+      <a href="/geoffrey/about">about</a>
+      <a href="/geoffrey/quotes" class="active">quotes</a>
+      <a href="/geoffrey/readings">readings</a>
+      <a href="/geoffrey/favorites">favorites</a>
+    </div>
+  </nav>
+
+  <div class="g-container">
+
+    <section class="quotes-header">
+      <a href="/geoffrey" class="g-back">geoffrey</a>
+      <h1 class="g-page-title">Collected <em>Words</em></h1>
+      <p class="g-page-subtitle">Lines I've carried with me. Some found, some earned.</p>
+      <p class="quotes-count">12 quotes</p>
+    </section>
+
+    <div class="quotes-body">
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">01</div>
+          <p class="quote-text large">If you don't sacrifice for your goal, your goal becomes the sacrifice.</p>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">02</div>
+          <p class="quote-text large">He who has a why can bear almost any how.</p>
+          <span class="quote-author">&mdash; Friedrich Nietzsche</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">03</div>
+          <p class="quote-text medium">Empty barrels make the most noise.</p>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">04</div>
+          <p class="quote-text medium">A smooth sea never made a skilled sailor.</p>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">05</div>
+          <p class="quote-text small">Inspiration is perishable and life goes by fast. Inaction is a particularly insidious type of risk.</p>
+          <span class="quote-author">&mdash; Sam Altman</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">06</div>
+          <p class="quote-text medium">Wealth consists not in having great possessions, but in having few wants.</p>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">07</div>
+          <p class="quote-text large">Sleep is the most powerful drug.</p>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">08</div>
+          <p class="quote-text medium">Winning solves everything.</p>
+          <span class="quote-author">&mdash; Tiger Woods</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">09</div>
+          <p class="quote-text large">Slow is smooth, smooth is fast.</p>
+          <span class="quote-author">&mdash; Navy SEALs</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">10</div>
+          <p class="quote-text large">Only the disciplined ones in life are free.</p>
+          <span class="quote-author">&mdash; Eliud Kipchoge</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">11</div>
+          <p class="quote-text medium">I wish I could look at people and things in life as if I'm listening to music while looking at them.</p>
+          <span class="quote-author">&mdash; Geoffrey Jing</span>
+        </div>
+      </div>
+
+      <div class="quote-item">
+        <div class="quote-item-inner">
+          <div class="quote-num">12</div>
+          <p class="quote-text small">They said I've run out of gas, but I never give up, and I stick to my dream and stay on the track... I'm 32 years old now, but I can run faster than I ever have. I want to tell young guys, don't waste any time.</p>
+          <span class="quote-author">&mdash; Su Bingtian</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="g-footer">
+      <span>&copy; Geoffrey Jing <span id="currentYear"></span></span>
+      <span class="g-footer-right">est. may 9, 2003</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Scroll progress
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    // Staggered quote reveal
+    (function () {
+      var items = document.querySelectorAll('.quote-item');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = Array.from(items).indexOf(entry.target);
+            setTimeout(function () { entry.target.classList.add('visible'); }, idx * 50);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(function (q) { obs.observe(q); });
+    })();
+  </script>
+  <script src="../../cursor.js"></script>
+</body>
+</html>

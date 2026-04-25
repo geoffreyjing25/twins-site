@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Geoffrey Jing</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../geoffrey.css" />
+  <style>
+    .about-header {
+      margin-top: 120px;
+      margin-bottom: 80px;
+    }
+
+    .about-body {
+      margin-bottom: 100px;
+    }
+
+    .about-section {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--g-border);
+    }
+
+    .about-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .about-section-title {
+      font-family: var(--g-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--g-text);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #555;
+      font-weight: 300;
+    }
+
+    .about-text strong {
+      font-weight: 500;
+      color: var(--g-text);
+    }
+
+    .about-text p {
+      margin-bottom: 1.4em;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Principles list */
+    .principles-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .principle {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--g-border-light);
+      align-items: baseline;
+    }
+
+    .principle:last-child {
+      border-bottom: none;
+    }
+
+    .principle-num {
+      font-family: var(--g-mono);
+      font-size: 0.65rem;
+      color: var(--g-text-muted);
+      min-width: 24px;
+      padding-top: 2px;
+    }
+
+    .principle-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #555;
+      font-weight: 300;
+    }
+
+    .principle-text strong {
+      font-weight: 500;
+      color: var(--g-text);
+    }
+
+    /* Stats detail grid */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .detail-item {
+      background: var(--g-bg-card);
+      border: 1px solid var(--g-border-light);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .detail-item-label {
+      font-family: var(--g-mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--g-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .detail-item-value {
+      font-family: var(--g-serif);
+      font-size: 1.2rem;
+      color: var(--g-text);
+    }
+
+    @media (max-width: 768px) {
+      .about-header { margin-top: 100px; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="g-page">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="g-nav">
+    <a href="/geoffrey" class="g-nav-brand">Geoffrey Jing</a>
+    <div class="g-nav-links">
+      <a href="/">home</a>
+      <a href="/geoffrey/about" class="active">about</a>
+      <a href="/geoffrey/quotes">quotes</a>
+      <a href="/geoffrey/readings">readings</a>
+      <a href="/geoffrey/favorites">favorites</a>
+    </div>
+  </nav>
+
+  <div class="g-container">
+
+    <section class="about-header">
+      <a href="/geoffrey" class="g-back">geoffrey</a>
+      <h1 class="g-page-title">About</h1>
+      <p class="g-page-subtitle">A longer introduction.</p>
+    </section>
+
+    <div class="about-body">
+
+      <div class="about-section g-fade">
+        <div class="about-text">
+          <p><strong>I build things that work well.</strong> Not because I obsess over polish for its own sake, but because I believe the quality of what you make reflects the quality of how you think. I care about systems that scale, design that communicates, and products that earn the attention they ask for.</p>
+          <p>I'm one half of a pair of twins. My brother Albert and I share a birthday, a competitive streak, and an unreasonable belief that most problems are solvable if you just refuse to stop working on them.</p>
+          <p>Outside of building, I train across ten different sports, which sounds excessive until you realize most of them are just excuses to be outside and moving. I believe the body and the mind are the same system and you can't sharpen one while neglecting the other.</p>
+        </div>
+      </div>
+
+      <div class="about-section g-fade">
+        <p class="g-label">How I think</p>
+        <ul class="principles-list">
+          <li class="principle">
+            <span class="principle-num">01</span>
+            <span class="principle-text"><strong>Discipline is a form of freedom.</strong> Constraints create clarity. The more decisions you automate, the more willpower you have for the ones that actually matter.</span>
+          </li>
+          <li class="principle">
+            <span class="principle-num">02</span>
+            <span class="principle-text"><strong>Speed comes from smoothness.</strong> Rushing produces friction. The fastest path is the one with the fewest wasted motions.</span>
+          </li>
+          <li class="principle">
+            <span class="principle-num">03</span>
+            <span class="principle-text"><strong>Build before you talk.</strong> The gap between ideas and execution is where most things die. Ship something, then iterate. Talk is cheap and empty barrels make the most noise.</span>
+          </li>
+          <li class="principle">
+            <span class="principle-num">04</span>
+            <span class="principle-text"><strong>Compound quietly.</strong> The things that matter most are rarely visible day-to-day. Show up consistently, and the results will speak louder than any announcement.</span>
+          </li>
+          <li class="principle">
+            <span class="principle-num">05</span>
+            <span class="principle-text"><strong>Rest is a strategy, not a reward.</strong> Sleep is the most powerful drug. Recovery is part of the system, not a break from it.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-section g-fade">
+        <p class="g-label">At a glance</p>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="detail-item-label">Location</div>
+            <div class="detail-item-value">United States</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">Born</div>
+            <div class="detail-item-value">May 9, 2003</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">Focus</div>
+            <div class="detail-item-value">Design + Engineering</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">Sports</div>
+            <div class="detail-item-value">10 and counting</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="g-footer">
+      <span>&copy; Geoffrey Jing <span id="currentYear"></span></span>
+      <span class="g-footer-right">est. may 9, 2003</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Scroll progress
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    // Fade-in
+    (function () {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.g-fade').forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+  <script src="../../cursor.js"></script>
+</body>
+</html>

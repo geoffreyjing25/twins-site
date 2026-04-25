@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperance is the best anti-corruption medication — Albert Jing</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        body {
+            background-color: #dfe5e1;
+            opacity: 1;
+        }
+
+        .albert-page {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .albert-container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            letter-spacing: 0.3px;
+        }
+
+        .article-body {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text-primary);
+            font-weight: 300;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .article-body em {
+            font-style: italic;
+        }
+
+        .albert-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .albert-page {
+                padding: 60px 20px;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .article-body {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="albert-page">
+    <div class="albert-container">
+        <a href="/albert/writings" class="back-link">back</a>
+
+        <h1 class="article-title">Temperance is the best anti-corruption medication.</h1>
+
+        <div class="article-body">
+            <p>Temperance is the best anti-corruption medication. Take this medication with a grain of salt though, what works for me might not work for you.</p>
+
+            <p>I've never owned a fake ID, never been to a bar, never even had a glass of wine or bottle of beer ever. The only smoking I've done is from middle school pickup basketball fast breaks. I've never downloaded a dating app. Never been to a club or rave. And currently I have no intention on exploring these "fun" things.</p>
+
+            <p>I'm certain the majority will find me boring or extreme for sharing this. Some may think I have strong discipline. The truth is, I really don't think I'm very disciplined, and that is exactly why I do this.</p>
+
+            <p>Contrary to what others think, I actually enjoy my life. I don't consider myself exceptionally strong, if anything, I know my limits. I recognize that if I immerse myself in certain environments, I may not control myself well. So instead of flirting with temptations, I choose not to walk down that path. I have seen brilliant people <em>personal to me</em> become controlled by their desires that arose from an innocent contact to these things.</p>
+
+            <p>If I never drink I never find out how fun it is, and a shirley temple gives me more satisfaction than tequila to AA attendees. A late-night tennis or vibe-code session with my twin bro feels super rewarding, as I'm unburdened by memories of clubbing, drinking, or getting high. I have peace of mind and no conflicts on this end internally. I am immensely grateful to be in this situation.</p>
+
+            <p>Even so, it's hard to be totally clean of vices and frankly, not always realistic. In those cases, I really have to practice self-restraint and moderation, and it's a work in progress.</p>
+
+            <p>These things take willpower for me to do, but for those that I can, I've trained myself to largely make them non-negotiables. This way I have time to do things that will improve me and not hinder me.</p>
+
+            <p>If you feel yourself struggling with a lot of things you know you shouldn't be or don't want to be, try seriously physically and mentally withdrawing from them. If you can't, try and find balance. Without contact, there is no dependence. Without dependence, there is no desire.</p>
+
+            <p>I know some people can balance things, I can't. This is just how I am.</p>
+
+            <p>As marathoner Eliud Kipchoge best put it: "Only the disciplined ones in life are free." I really believe in that saying.</p>
+        </div>
+
+        <footer class="albert-footer">
+            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="../../../cursor.js"></script>
+</body>
+</html>

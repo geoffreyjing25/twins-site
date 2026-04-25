@@ -207,8 +207,7 @@
             <h2 class="section-title">Sports</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="play-social">play & social</button>
-                <button class="filter-btn" data-filter="exercise">exercise</button>
-                <button class="filter-btn" data-filter="entertainment">entertainment</button>
+                <button class="filter-btn" data-filter="entertainment">entertainment (watching)</button>
             </div>
             <div class="section-content">
                 <div class="sports-item favorites-item" data-category="play-social">
@@ -221,28 +220,19 @@
                         <li>jiu-jitsu</li>
                         <li>badminton</li>
                         <li>ping pong</li>
-                        <li>bowling</li>
                         <li>ultimate</li>
-                    </ul>
-                </div>
-
-                <div class="sports-item favorites-item" data-category="exercise">
-                    <span class="sports-category">Exercise</span>
-                    <ul class="sports-list">
-                        <li>tennis</li>
-                        <li>boxing</li>
-                        <li>cycling</li>
                     </ul>
                 </div>
 
                 <div class="sports-item favorites-item" data-category="entertainment">
                     <span class="sports-category">Entertainment (Watching)</span>
                     <ul class="sports-list">
-                        <li>golf (PGA, LIV, and YouTube)</li>
-                        <li>tennis (old big three and new big two)</li>
-                        <li>basketball (NBA and sometimes college)</li>
-                        <li>boxing and MMA (Naoya/Crawford/Usyk/Tank, Islam/Pereira, and Jake Paul)</li>
-                        <li>occasionally soccer and F1</li>
+                        <li>golf</li>
+                        <li>basketball</li>
+                        <li>tennis</li>
+                        <li>boxing & MMA</li>
+                        <li>sometimes soccer</li>
+                        <li>F1</li>
                         <li>olympic table tennis</li>
                     </ul>
                 </div>
@@ -254,9 +244,13 @@
             <div class="section-content">
                 <ul class="books-list">
                     <li>The Elephant in the Brain</li>
+                    <li>Nudge: Improving Decisions About Health, Wealth, and Happiness</li>
                     <li>Courage to Be Disliked</li>
-                    <li>Mastery</li>
+                    <li>Mastery (I liked more than 48 Laws)</li>
                     <li>I Will Teach You to Be Rich</li>
+                    <li>Willpower</li>
+                    <li>Can't Hurt Me</li>
+                    <li>The Second Mountain: Quest for a Moral Life</li>
                 </ul>
             </div>
         </div>
@@ -276,8 +270,7 @@
 
             // Initialize with play-social filter active
             items.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (category !== 'play-social') {
+                if (item.getAttribute('data-category') !== 'play-social') {
                     item.classList.add('hidden');
                 }
             });

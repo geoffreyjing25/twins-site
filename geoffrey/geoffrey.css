@@ -1,0 +1,259 @@
+/* ============================================
+   Geoffrey Jing — Shared Page Styles
+   Fonts: Instrument Serif, DM Sans, Space Mono
+   Palette: warm cream / bronze / charcoal
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --g-bg: #f4f1eb;
+  --g-bg-card: rgba(255,255,255,0.4);
+  --g-text: #1a1a1a;
+  --g-text-secondary: #777;
+  --g-text-muted: #aaa;
+  --g-accent: #8b7355;
+  --g-border: #e2ddd4;
+  --g-border-light: rgba(0,0,0,0.05);
+  --g-serif: 'Instrument Serif', Georgia, serif;
+  --g-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --g-mono: 'Space Mono', 'SF Mono', monospace;
+}
+
+/* ---- Base ---- */
+body.g-page {
+  background-color: var(--g-bg);
+  font-family: var(--g-sans);
+  color: var(--g-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Scroll progress bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--g-accent);
+  z-index: 9998;
+  width: 0%;
+  transition: none;
+}
+
+/* ---- Navigation ---- */
+.g-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 200;
+  background: linear-gradient(to bottom, var(--g-bg) 50%, transparent);
+  pointer-events: none;
+}
+
+.g-nav > * {
+  pointer-events: auto;
+}
+
+.g-nav-brand {
+  font-family: var(--g-serif);
+  font-size: 1rem;
+  color: var(--g-text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.g-nav-brand:hover {
+  opacity: 0.6;
+}
+
+.g-nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.g-nav-links a {
+  color: var(--g-text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.g-nav-links a:hover {
+  color: var(--g-text);
+}
+
+.g-nav-links a.active {
+  color: var(--g-text);
+}
+
+.g-nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--g-text);
+}
+
+/* ---- Page container ---- */
+.g-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Section label ---- */
+.g-label {
+  font-family: var(--g-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--g-text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ---- Divider ---- */
+.g-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--g-border);
+  margin: 0;
+}
+
+/* ---- Back link ---- */
+.g-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--g-text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease, gap 0.3s ease;
+  margin-bottom: 60px;
+}
+
+.g-back:hover {
+  color: var(--g-text);
+  gap: 12px;
+}
+
+.g-back::before {
+  content: '←';
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.g-back:hover::before {
+  transform: translateX(-3px);
+}
+
+/* ---- Page title ---- */
+.g-page-title {
+  font-family: var(--g-serif);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 400;
+  color: var(--g-text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+}
+
+.g-page-title em {
+  font-style: italic;
+  color: var(--g-accent);
+}
+
+.g-page-subtitle {
+  font-size: 1rem;
+  color: var(--g-text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0 0 60px;
+  max-width: 480px;
+}
+
+/* ---- Footer ---- */
+.g-footer {
+  margin-top: auto;
+  padding: 40px 0;
+  border-top: 1px solid var(--g-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--g-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.g-footer-right {
+  font-family: var(--g-serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #ccc;
+}
+
+/* ---- Fade-in animation ---- */
+@keyframes g-fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.g-fade {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.g-fade.visible {
+  animation: g-fadeUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .g-nav {
+    padding: 18px 24px;
+  }
+  .g-container {
+    padding: 0 24px;
+  }
+  .g-nav-links {
+    gap: 16px;
+  }
+  .g-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .g-nav {
+    padding: 16px 18px;
+  }
+  .g-container {
+    padding: 0 18px;
+  }
+  .g-nav-links {
+    gap: 12px;
+  }
+  .g-nav-links a {
+    font-size: 0.72rem;
+  }
+}

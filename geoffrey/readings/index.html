@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readings — Geoffrey Jing</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../geoffrey.css" />
+  <style>
+    .readings-header {
+      margin-top: 120px;
+      margin-bottom: 60px;
+    }
+
+    .readings-body {
+      margin-bottom: 100px;
+    }
+
+    /* ---- Book list ---- */
+    .book-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .book-item {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      gap: 20px;
+      align-items: baseline;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--g-border);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .book-item:first-child {
+      border-top: 1px solid var(--g-border);
+    }
+
+    .book-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .book-num {
+      font-family: var(--g-mono);
+      font-size: 0.6rem;
+      color: var(--g-border);
+      padding-top: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .book-item:hover .book-num {
+      color: var(--g-accent);
+    }
+
+    .book-info {
+      min-width: 0;
+    }
+
+    .book-title {
+      font-family: var(--g-serif);
+      font-size: 1.15rem;
+      color: var(--g-text);
+      line-height: 1.3;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .book-item:hover .book-title {
+      color: var(--g-accent);
+    }
+
+    .book-author {
+      font-size: 0.8rem;
+      color: var(--g-text-muted);
+      font-weight: 300;
+    }
+
+    .book-note {
+      font-size: 0.82rem;
+      color: #999;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-top: 8px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .book-item:hover .book-note {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 8px;
+    }
+
+    .book-tag {
+      font-family: var(--g-mono);
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--g-text-muted);
+      background: rgba(0,0,0,0.03);
+      padding: 4px 10px;
+      border-radius: 3px;
+      white-space: nowrap;
+      align-self: center;
+    }
+
+    /* Section dividers */
+    .reading-section {
+      margin-bottom: 64px;
+    }
+
+    .reading-section-label {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .readings-header { margin-top: 100px; }
+      .book-item {
+        grid-template-columns: 28px 1fr;
+      }
+      .book-tag { display: none; }
+    }
+  </style>
+</head>
+<body class="g-page">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="g-nav">
+    <a href="/geoffrey" class="g-nav-brand">Geoffrey Jing</a>
+    <div class="g-nav-links">
+      <a href="/">home</a>
+      <a href="/geoffrey/about">about</a>
+      <a href="/geoffrey/quotes">quotes</a>
+      <a href="/geoffrey/readings" class="active">readings</a>
+      <a href="/geoffrey/favorites">favorites</a>
+    </div>
+  </nav>
+
+  <div class="g-container">
+
+    <section class="readings-header">
+      <a href="/geoffrey" class="g-back">geoffrey</a>
+      <h1 class="g-page-title">Readings</h1>
+      <p class="g-page-subtitle">Books and essays that changed how I think. Hover for notes.</p>
+    </section>
+
+    <div class="readings-body">
+
+      <div class="reading-section">
+        <p class="g-label reading-section-label">Mindset &amp; Psychology</p>
+        <ul class="book-list">
+          <li class="book-item">
+            <span class="book-num">01</span>
+            <div class="book-info">
+              <div class="book-title">The Courage to Be Disliked</div>
+              <div class="book-author">Ichiro Kishimi &amp; Fumitake Koga</div>
+              <div class="book-note">Reframed how I think about freedom and responsibility. You are not the product of your past.</div>
+            </div>
+            <span class="book-tag">psychology</span>
+          </li>
+          <li class="book-item">
+            <span class="book-num">02</span>
+            <div class="book-info">
+              <div class="book-title">Willpower</div>
+              <div class="book-author">Roy Baumeister &amp; John Tierney</div>
+              <div class="book-note">Willpower is finite. Automate the small decisions so you can spend it where it counts.</div>
+            </div>
+            <span class="book-tag">psychology</span>
+          </li>
+          <li class="book-item">
+            <span class="book-num">03</span>
+            <div class="book-info">
+              <div class="book-title">The Elephant in the Brain</div>
+              <div class="book-author">Kevin Simler &amp; Robin Hanson</div>
+              <div class="book-note">Most of what we do has hidden motives. Once you see it, you can't unsee it.</div>
+            </div>
+            <span class="book-tag">psychology</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reading-section">
+        <p class="g-label reading-section-label">Craft &amp; Mastery</p>
+        <ul class="book-list">
+          <li class="book-item">
+            <span class="book-num">04</span>
+            <div class="book-info">
+              <div class="book-title">Mastery</div>
+              <div class="book-author">Robert Greene</div>
+              <div class="book-note">The path is longer than you think and shorter than you fear. Apprenticeship, practice, intuition.</div>
+            </div>
+            <span class="book-tag">craft</span>
+          </li>
+          <li class="book-item">
+            <span class="book-num">05</span>
+            <div class="book-info">
+              <div class="book-title">Atomic Habits</div>
+              <div class="book-author">James Clear</div>
+              <div class="book-note">Systems over goals. Identity over outcomes. Small things compound.</div>
+            </div>
+            <span class="book-tag">habits</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reading-section">
+        <p class="g-label reading-section-label">Strategy &amp; Wealth</p>
+        <ul class="book-list">
+          <li class="book-item">
+            <span class="book-num">06</span>
+            <div class="book-info">
+              <div class="book-title">I Will Teach You to Be Rich</div>
+              <div class="book-author">Ramit Sethi</div>
+              <div class="book-note">Practical, no-nonsense financial systems. Automate everything you can.</div>
+            </div>
+            <span class="book-tag">finance</span>
+          </li>
+          <li class="book-item">
+            <span class="book-num">07</span>
+            <div class="book-info">
+              <div class="book-title">The Almanack of Naval Ravikant</div>
+              <div class="book-author">Eric Jorgenson</div>
+              <div class="book-note">Wealth, happiness, and leverage distilled. Read it once a year.</div>
+            </div>
+            <span class="book-tag">philosophy</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <footer class="g-footer">
+      <span>&copy; Geoffrey Jing <span id="currentYear"></span></span>
+      <span class="g-footer-right">est. may 9, 2003</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    (function () {
+      var items = document.querySelectorAll('.book-item');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = Array.from(items).indexOf(entry.target);
+            setTimeout(function () { entry.target.classList.add('visible'); }, idx * 60);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+  <script src="../../cursor.js"></script>
+</body>
+</html>
