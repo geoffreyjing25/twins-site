@@ -13,42 +13,42 @@ const GEOFFREY = {
     greeting: "Welcome.",
     paragraphs: [
       "I most recently worked at Judgment Labs as the founding PM. Prior to that, I was an AC within Bain PEG in the NYC office. Now I'm exploring something new.",
-      "In my free time, I like to cook, eat, play guitar, and participate in any activity that makes me sweat intensely.",
+      "In my free time, I like to read, cook & eat healthy, play guitar, and participate in any activity that makes me sweat intensely.",
     ],
   },
   // The trailing "flows" sentence is rendered separately so the
   // word can be wired up as the hidden music trigger.
   flowsLine: {
-    prefix: "When I'm out on the golf course, deep in work, or doing any form of writing, I'm usually locked in to some ",
+    prefix: "You can often find me out on the golf course, deep in work, or learning something new; I'll likely be locked in some ",
     suffix: ".",
   },
   now: [
-    { label: "Exploring",        value: "what's next" },
-    { label: "Watching",         value: "Kentucky Derby prep" },
+    { label: "Exploring",        value: "something new" },
+    { label: "Watching",         value: "Triple Crown" },
     { label: "Picking up",       value: "a fingerstyle piece" },
     { label: "Sweating through", value: "sauna" },
   ],
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/geoffreyjing/", handle: "geoffreyjing" },
     { label: "Twitter",  href: "https://x.com/geoffrey__jing",              handle: "@geoffrey__jing" },
-    { label: "Email",    href: "mailto:hello@geoffreyjing.com",             handle: "hello@geoffreyjing.com" },
+    { label: "Email",    href: "mailto:jinggeoffrey[@]gmail.com",             handle: "jinggeoffrey@gmail.com" },
   ],
 };
 
 const ALBERT = {
   name: "Albert Jing",
   initials: "AJ",
-  location: "San Francisco",
+  location: "Midwest",
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "Most recently I worked on consumer and defense tech projects at BCG and ate a lot of fancy dinners I wouldn't pay for. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
-      "In my free time, I bounce or hit balls (basketball, golf, tennis), and pick up new skills (currently breakdancing). I am a fan of polyglots, underdog athletes, and contrarian investors.",
-      "When I have even more free time, I study Xunzi teachings, game theory, and political realism, and watch youtube golf.",
+      "Most recently I worked on consumer and defense tech projects at BCG, providing strategy to enterprises. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
+      "In my free time, I stay active through basketball, golf, and tennis. I am a fan of polyglots, underdog athletes, and contrarian investors.",
+      "I am interested in Xunzi teachings, game theory, and political realism.",
     ],
   },
   flowsLine: {
-    prefix: "If I don't respond back on time, you can often find me strolling near a body of water listening to some ",
+    prefix: "You can often find me strolling near a body of water listening to some ",
     suffix: ".",
   },
   now: [

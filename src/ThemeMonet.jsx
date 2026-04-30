@@ -113,7 +113,7 @@ function ThemeMonet() {
     panel: {
       position: "relative", zIndex: 3, cursor: "auto",
       maxWidth: 440, margin: "clamp(56px,12vh,140px) auto 56px",
-      padding: "22px 26px 26px",
+      padding: "22px 26px 26px", zoom: 1.10,
       background: P.panel, color: P.ink,
       backdropFilter: "blur(3px)", WebkitBackdropFilter: "blur(3px)",
       border: `1px solid ${P.panelBorder}`,

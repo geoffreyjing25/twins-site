@@ -26,7 +26,7 @@ const minimalStyles = {
     fontWeight: 400, letterSpacing: "-0.005em",
     position: "relative",
   },
-  wrap: { maxWidth: 520, margin: "0 auto", padding: "clamp(56px,10vh,120px) 24px 80px" },
+  wrap: { maxWidth: 520, margin: "0 auto", padding: "clamp(56px,10vh,120px) 24px 80px", zoom: 1.03 },
   topMeta: {
     display: "flex", justifyContent: "space-between", alignItems: "center",
     fontSize: 10.5, letterSpacing: "0.2em", textTransform: "uppercase",
@@ -135,23 +135,21 @@ function MiniTerminal({ C }) {
     const c = raw.trim().toLowerCase();
     let out = "";
     if (c === "help") {
-      out = "commands: help, whoami, now, anticipated, derby, french open, world cup, nba finals, coffee, links, clear";
+      out = "commands: help, now, anticipated, derby, sports, coffee, links, twin, pbf, clear";
     } else if (c === "now") {
       out = C.now.map(n => `  ${n.label.padEnd(18)} ${n.value}`).join("\n");
     } else if (c === "anticipated") {
-      out = "things i'm looking forward to:\n  · kentucky derby — may 2 · churchill downs\n  · french open — may 24 · roland-garros (men's)\n  · fifa world cup — june 2026 · north america\n  · nba finals — june · tbd\n  · first real summer weekend";
+      out = "triple crown\n    · kentucky derby    — may 2  · churchill downs\n    · preakness stakes  — may 16 · pimlico\n    · belmont stakes    — jun 7  · belmont park\n\n  golf majors\n    · pga championship  — may 15 · quail hollow\n    · us open           — jun 16 · stony brook\n\n  · french open — may 24 · roland-garros\n  · fifa world cup — jun 11 · north america\n  · nba finals — jun · tbd";
     } else if (c === "derby" || c === "kentucky derby") {
       out = "kentucky derby · may 2 · churchill downs · post time ~6:57pm ET";
-    } else if (c === "french open" || c === "roland garros") {
-      out = "french open (men's) · may 24 – jun 7 · roland-garros · clay · paris";
-    } else if (c === "world cup" || c === "fifa world cup") {
-      out = "fifa world cup 2026 · jun 11 – jul 19 · usa / canada / mexico · 48 teams";
-    } else if (c === "nba finals") {
-      out = "nba finals · early june · two teams, seven games, the whole thing";
+    } else if (c === "sports") {
+      out = "basketball, golf, tennis, calisthenics, running, swimming, badminton, volleyball, football, soccer, ultimate frisbee, BJJ, pickleball, bowling, table tennis.";
     } else if (c === "coffee") {
-      out = "current rotation: blue bottle bella donovan, sightglass owl's howl.";
-    } else if (c === "whoami") {
-      out = `${C.name} — ex-founding-PM @ Judgment Labs. now exploring what's next.`;
+      out = "current: iced latte + 1 pump vanilla";
+    } else if (c === "pbf") {
+      out = "12";
+    } else if (c === "twin") {
+      out = "https://www.linkedin.com/in/albert-jing/";
     } else if (c === "links") {
       out = C.links.map(l => `  ${l.label.padEnd(10)} ${l.handle}  →  ${l.href}`).join("\n");
     } else if (c === "clear") {
@@ -272,6 +270,8 @@ function MiniTerminal({ C }) {
   );
 }
 
+const BIRTH_YEAR = 2003; // update if wrong — used for the age stat
+
 function ThemeMinimal() {
   const C = window.PROFILES.geoffrey;
   const [now, setNow] = React.useState(new Date());
@@ -331,12 +331,17 @@ function ThemeMinimal() {
 
         <div style={minimalStyles.twoCol}>
           <div>
-            <div style={minimalStyles.colLabel}>// now</div>
+            <div style={minimalStyles.colLabel}>// stats</div>
             <div style={minimalStyles.nowList}>
-              {C.now.map((n, i) => (
-                <div key={n.label} style={{ ...minimalStyles.nowRow, opacity: i === idx ? 1 : 0.75 }}>
-                  <span style={minimalStyles.nowLabel}>{n.label}</span>
-                  <span style={minimalStyles.nowValue}>{n.value}</span>
+              {[
+                { label: "age",          value: String(now.getFullYear() - BIRTH_YEAR) },
+                { label: "countries",    value: "11" },
+                { label: "weekly saunas",    value: "3" },
+                { label: "oz of greek yogurt consumed per week",    value: "48" },
+              ].map((s) => (
+                <div key={s.label} style={minimalStyles.nowRow}>
+                  <span style={minimalStyles.nowLabel}>{s.label}</span>
+                  <span style={minimalStyles.nowValue}>{s.value}</span>
                 </div>
               ))}
             </div>

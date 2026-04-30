@@ -165,14 +165,12 @@ function FlowsTrigger({ color = "currentColor", word = "flows" }) {
       onMouseLeave={() => setHover(false)}
       style={{
         cursor: "pointer",
-        color,
+        color: hover ? color : "inherit",
         background: "transparent",
-        borderBottom: `1px dotted ${hover ? color : `${color}55`}`,
-        paddingBottom: 1,
-        transition: "border-color .25s, letter-spacing .25s, opacity .25s",
-        letterSpacing: hover ? "0.02em" : "0",
-        opacity: hover ? 1 : 0.88,
-        fontWeight: 500,
+        borderBottom: hover ? `1px dotted ${color}` : "none",
+        paddingBottom: hover ? 1 : 0,
+        transition: "color .25s, border-color .25s, opacity .25s",
+        opacity: hover ? 1 : 1,
       }}
       title={hover ? "click to play" : undefined}
     >
