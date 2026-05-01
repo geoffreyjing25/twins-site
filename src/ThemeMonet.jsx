@@ -199,7 +199,16 @@ function ThemeMonet() {
 
       <div style={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div style={styles.header}>
-          <h1 style={styles.name}>{C.name}</h1>
+          <h1 style={styles.name}>
+            {C.name.split(" ")[0]}{" "}
+            <a
+              href="https://jingtwins.com"
+              style={{ color: "inherit", textDecoration: "none", fontStyle: "inherit", borderBottom: "1px dotted transparent", transition: "border-color .2s" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = `${P.ink}55`; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "transparent"; }}
+              title="jingtwins.com"
+            >Jing</a>
+          </h1>
           <span style={styles.loc}>San Francisco</span>
         </div>
         <div style={styles.plaque}>{P.title.toLowerCase()}</div>

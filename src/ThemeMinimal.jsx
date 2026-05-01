@@ -307,7 +307,16 @@ function ThemeMinimal() {
         </div>
 
         <div style={minimalStyles.headRow}>
-          <h1 style={minimalStyles.name}>{C.name}</h1>
+          <h1 style={minimalStyles.name}>
+            {C.name.split(" ")[0]}{" "}
+            <a
+              href="https://jingtwins.com"
+              style={{ color: "inherit", textDecoration: "none", borderBottom: "1px dotted transparent", transition: "border-color .2s" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "rgba(26,26,24,0.35)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "transparent"; }}
+              title="jingtwins.com"
+            >Jing</a>
+          </h1>
           <span style={minimalStyles.monogram}>— {C.initials.split("").join(".")}.</span>
         </div>
 
