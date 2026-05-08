@@ -19,7 +19,7 @@ const GEOFFREY = {
   // The trailing "flows" sentence is rendered separately so the
   // word can be wired up as the hidden music trigger.
   flowsLine: {
-    prefix: "You can often find me out on the golf course, deep in work, or learning something new; I'll likely be locked in some ",
+    prefix: "You can often find me out on the golf course, deep in work, or learning something new, listening to some ",
     suffix: ".",
   },
   now: [
