@@ -24,7 +24,7 @@ const GEOFFREY = {
   // },
   now: [
     { label: "Exploring",        value: "something new" },
-    { label: "Building",       value: "software for SMBs" },
+    { label: "Building",       value: "a side project for SMBs" },
     { label: "Watching",         value: "Triple Crown" }, 
     { label: "Sweating through", value: "sauna" },
   ],
@@ -44,7 +44,7 @@ const ALBERT = {
     paragraphs: [
       "Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
       "In my free time, I stay active through basketball, golf, and tennis. I am a fan of polyglots, underdog athletes, and contrarian investors.",
-      "I am interested in Xunzi teachings, game theory, and political realism.",
+      // "I am interested in Xunzi teachings, game theory, and political realism.",
     ],
   },
   flowsLine: {
