@@ -329,11 +329,13 @@ function ThemeMinimal() {
 
         <div style={minimalStyles.body}>
           {C.intro.paragraphs.map((p, i) => <p key={i} style={minimalStyles.para}>{p}</p>)}
+          {/* flowsLine paragraph intentionally hidden — keep for future re-enable.
           <p style={minimalStyles.para}>
             {C.flowsLine.prefix}
             <window.FlowsTrigger color="#c45a3a" word="tunes" />
             {C.flowsLine.suffix}
           </p>
+          */}
         </div>
 
         <Ticks />

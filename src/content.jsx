@@ -12,7 +12,8 @@ const GEOFFREY = {
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "I most recently worked at Judgment Labs as the founding PM. Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I worked in product & engineering roles at early-stage startups and Fortune 500 companies, and scouted for Soma Capital, .406 Ventures, and V11. Now I'm exploring something new.",
+      "I'm Geoffrey, welcome to my site. I most recently worked at Judgment Labs as the founding PM.",
+      "Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I interned in product & engineering roles at early-stage startups and Fortune 500 companies, and was a scout/fellow at Soma Capital, .406 Ventures, and V11. Now I'm exploring something new.",
       "In my free time, I like to read, eat clean, play guitar, and participate in any activity that makes me sweat intensely.",
     ],
   },
@@ -42,7 +43,7 @@ const ALBERT = {
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
+      "Hey I'm Albert, thanks for stopping by.Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
       "In my free time, I stay active through basketball, golf, and tennis. I am a fan of polyglots, underdog athletes, and contrarian investors.",
       // "I am interested in Xunzi teachings, game theory, and political realism.",
     ],
@@ -51,9 +52,10 @@ const ALBERT = {
     prefix: "You can often find me strolling near a body of water listening to some ",
     suffix: ".",
   },
+  // now section intentionally hidden — keep for future re-enable.
   // now: [
   //   { label: "Practicing", value: "breakdancing" },
-  //   { label: "Studying",   value: "Xunzi, game theory, " },
+  //   { label: "Reading",   value: "Xunzi, game theory, and political realism" },
   //   { label: "Often near", value: "a body of water" },
   // ],
   links: [

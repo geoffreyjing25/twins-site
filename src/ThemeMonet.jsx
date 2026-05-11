@@ -222,6 +222,7 @@ function ThemeMonet() {
           </p>
         </div>
 
+        {/* Presently section intentionally hidden — keep for future re-enable.
         <div style={styles.section}>Presently</div>
         <div style={styles.nowGrid}>
           {C.now.map((n) => (
@@ -231,6 +232,7 @@ function ThemeMonet() {
             </React.Fragment>
           ))}
         </div>
+        */}
 
         <div style={styles.section}>Elsewhere</div>
         <div style={styles.links}>
