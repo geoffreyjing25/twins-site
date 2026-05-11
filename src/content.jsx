@@ -12,20 +12,20 @@ const GEOFFREY = {
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "I most recently worked at Judgment Labs as the founding PM. Prior to that, I was an AC within Bain PEG in the NYC office. Now I'm exploring something new.",
-      "In my free time, I like to read, cook & eat healthy, play guitar, and participate in any activity that makes me sweat intensely.",
+      "I most recently worked at Judgment Labs as the founding PM. Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I worked in product & engineering roles at early-stage startups and Fortune 500 companies, and scouted for Soma Capital, .406 Ventures, and V11. Now I'm exploring something new.",
+      "In my free time, I like to read, eat clean, play guitar, and participate in any activity that makes me sweat intensely.",
     ],
   },
   // The trailing "flows" sentence is rendered separately so the
   // word can be wired up as the hidden music trigger.
-  flowsLine: {
-    prefix: "You can often find me out on the golf course, deep in work, or learning something new, listening to some ",
-    suffix: ".",
-  },
+  // flowsLine: {
+  //   prefix: "You can often find me out on the golf course, deep in work, or learning something new,",
+  //   suffix: ".",
+  // },
   now: [
     { label: "Exploring",        value: "something new" },
-    { label: "Watching",         value: "Triple Crown" },
-    { label: "Picking up",       value: "a fingerstyle piece" },
+    { label: "Building",       value: "software for SMBs" },
+    { label: "Watching",         value: "Triple Crown" }, 
     { label: "Sweating through", value: "sauna" },
   ],
   links: [
@@ -42,7 +42,7 @@ const ALBERT = {
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "Most recently I worked on consumer and defense tech projects at BCG, providing strategy to enterprises. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
+      "Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
       "In my free time, I stay active through basketball, golf, and tennis. I am a fan of polyglots, underdog athletes, and contrarian investors.",
       "I am interested in Xunzi teachings, game theory, and political realism.",
     ],
@@ -53,8 +53,7 @@ const ALBERT = {
   },
   now: [
     { label: "Practicing", value: "breakdancing" },
-    { label: "Studying",   value: "Xunzi, game theory, realism" },
-    { label: "Watching",   value: "YouTube golf" },
+    { label: "Studying",   value: "Xunzi, game theory, " },
     { label: "Often near", value: "a body of water" },
   ],
   links: [
