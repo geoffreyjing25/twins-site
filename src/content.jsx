@@ -51,11 +51,11 @@ const ALBERT = {
     prefix: "You can often find me strolling near a body of water listening to some ",
     suffix: ".",
   },
-  now: [
-    { label: "Practicing", value: "breakdancing" },
-    { label: "Studying",   value: "Xunzi, game theory, " },
-    { label: "Often near", value: "a body of water" },
-  ],
+  // now: [
+  //   { label: "Practicing", value: "breakdancing" },
+  //   { label: "Studying",   value: "Xunzi, game theory, " },
+  //   { label: "Often near", value: "a body of water" },
+  // ],
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/albert-jing", handle: "albertjing" },
     { label: "Twitter",  href: "https://x.com/",               handle: "@albertjing" },
