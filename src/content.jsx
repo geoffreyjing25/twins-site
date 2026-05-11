@@ -43,7 +43,8 @@ const ALBERT = {
   intro: {
     greeting: "Welcome.",
     paragraphs: [
-      "Hey I'm Albert, thanks for stopping by.Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
+      "Hey I'm Albert, thanks for stopping by.",
+      "Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, & engineering roles.",
       "In my free time, I stay active through basketball, golf, and tennis. I am a fan of polyglots, underdog athletes, and contrarian investors.",
       // "I am interested in Xunzi teachings, game theory, and political realism.",
     ],
