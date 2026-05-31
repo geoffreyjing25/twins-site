@@ -5,168 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writings — Albert Jing</title>
     <link rel="stylesheet" href="../../styles.css">
-    <style>
-        body {
-            background-color: #dfe5e1;
-        }
-
-        .albert-page {
-            min-height: 100vh;
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .albert-container {
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 40px;
-            transition: var(--transition);
-            text-transform: lowercase;
-            letter-spacing: 0.3px;
-        }
-
-        .back-link:hover {
-            color: var(--text-primary);
-        }
-
-        .back-link::before {
-            content: '←';
-            margin-right: 8px;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--text-primary);
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .writings-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .writing-item {
-            margin-bottom: 50px;
-            padding-bottom: 50px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .writing-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .writing-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .writing-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .writing-title a:hover {
-            color: var(--text-secondary);
-        }
-
-        .writing-meta {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            letter-spacing: 0.3px;
-        }
-
-        .writing-excerpt {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
-        .albert-footer {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 300;
-        }
-
-        @media (max-width: 768px) {
-            .albert-page {
-                padding: 60px 20px;
-            }
-
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .writing-title {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../albert-pages.css">
 </head>
-<body class="albert-page">
-    <div class="albert-container">
-        <a href="/albert" class="back-link">back</a>
+<body class="albert-subpage">
+    <div class="sub-shell">
+        <header class="sub-header">
+            <nav class="sub-nav">
+                <a href="/albert">albert</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/writings" class="is-current">writings</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/quotes">quotes</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/beliefs">beliefs</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/interests">interests</a>
+            </nav>
+        </header>
 
-        <h1 class="page-title">Writings</h1>
+        <main class="sub-main">
+            <p class="sub-eyebrow">index</p>
+            <h1 class="sub-title">Writings</h1>
 
-        <ul class="writings-list">
-            <li class="writing-item">
-                <h2 class="writing-title">
-                    <a href="/albert/writings/paradoxical-rafting">Paradoxical Rafting</a>
-                </h2>
-                <p class="writing-excerpt">
-                    A thought of death emerges in my mind, while I try desperately emerging from water. A near-death white water rafting experience in Costa Rica and the lessons it left behind.
-                </p>
-            </li>
-            <li class="writing-item">
-                <h2 class="writing-title">
-                    <a href="/albert/writings/on-college">On college (the importance and insignificance)</a>
-                </h2>
-                <p class="writing-meta">Oct 2025</p>
-                <p class="writing-excerpt">
-                    Thoughts on higher education, dropping out, and finding your path. Written from the perspective of someone who went to a T10 liberal arts college.
-                </p>
-            </li>
-            <li class="writing-item">
-                <h2 class="writing-title">
-                    <a href="/albert/writings/temperance">Temperance is the best anti-corruption medication.</a>
-                </h2>
-                <p class="writing-excerpt">
-                    On choosing not to walk down certain paths, knowing your limits, and why the disciplined ones in life are free.
-                </p>
-            </li>
-        </ul>
+            <ul class="writings-index">
+                <li class="writing-row">
+                    <a href="/albert/writings/on-college" class="writing-row-link">
+                        <span class="writing-row-num">01</span>
+                        <div class="writing-row-body">
+                            <h2 class="writing-row-title">On college (the importance and insignificance)</h2>
+                            <p class="writing-row-date">Oct 2025</p>
+                            <p class="writing-row-excerpt">I've been seeing LinkedIn posts of the same format every day — 18-year-old founders dropping out, traditionalists swearing by advanced education. I don't know who's right, but here are my thoughts from Carleton.</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="writing-row">
+                    <a href="/albert/writings/paradoxical-rafting" class="writing-row-link">
+                        <span class="writing-row-num">02</span>
+                        <div class="writing-row-body">
+                            <h2 class="writing-row-title">Paradoxical Rafting</h2>
+                            <p class="writing-row-date">Jan 2026</p>
+                            <p class="writing-row-excerpt">White water rafting in Costa Rica, an underwater whirlwind, and a few thoughts on death, becoming a better man, and mental limits.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </main>
 
-        <footer class="albert-footer">
-            <p>&copy; Jing Twins <span id="currentYear"></span></p>
+        <footer class="sub-footer">
+            <p>&copy; jing twins <span id="currentYear"></span></p>
         </footer>
     </div>
 

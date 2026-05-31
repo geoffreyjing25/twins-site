@@ -5,71 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jing Twins</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* make the twins image more horizontal and slightly smaller */
-    .twins-portrait {
-      width: 90%; /* ~10% smaller than full width */
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      display: block;
-      margin: 0 auto 0.5rem; /* centers image and adds space above caption */
-    }
-
-    .twins-portrait:hover {
-      transform: scale(1.01);
-    }
-
-    /* caption centered under image */
-    .caption {
-      text-align: center;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin: 0 auto 2rem; /* centers and adds space below */
-      width: fit-content;
-      display: block;
-      transition: opacity 0.3s ease;
-    }
-
-    /* container around image and caption, keeps layout centered */
-    .index-image {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-      margin-top: 1.5rem;
-    }
-
-    /* Keep title on one line */
-    .index-content h1 {
-      white-space: nowrap;
-    }
-
-    /* Name links in title */
-    .name-link {
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      position: relative;
-      display: inline-block;
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-
-    .name-link:hover {
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
-    }
-
-    /* Magnetic char effect */
-    .char {
-      display: inline-block;
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-  </style>
 </head>
-<body>
+<body class="index-page">
   <div class="container">
     <div class="index-layout">
       <div class="index-content">
@@ -81,15 +18,12 @@
         </p>
       </div>
 
-      <div class="index-image">
-        <img
-          src="images/jingspic_1.jpg"
-          data-alt="images/jingspic_2.jpg"
-          alt="Albert & Geoffrey Jing"
-          class="twins-portrait"
-          id="twinsImage"
-        />
-        <p class="caption" id="imageCaption">disneyland 2008</p>
+      <div class="index-photo">
+        <div class="photo-stack" id="photoStack">
+          <img src="images/jingtwins1.JPG" alt="Albert & Geoffrey Jing" class="photo-layer is-active" data-index="0" />
+          <img src="images/jingtwins2.JPG" alt="" class="photo-layer" data-index="1" aria-hidden="true" />
+          <img src="images/jingtwins5.jpg" alt="" class="photo-layer" data-index="2" aria-hidden="true" />
+        </div>
       </div>
     </div>
 
@@ -99,55 +33,50 @@
   </div>
 
   <script>
-    // Set current year
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // Image + caption hover swap
-    const img = document.getElementById("twinsImage");
-    const caption = document.getElementById("imageCaption");
+    var stack = document.getElementById("photoStack");
+    var layers = stack.querySelectorAll(".photo-layer");
+    var current = 0;
+    var total = layers.length;
 
-    const originalSrc = img.getAttribute("src");
-    const hoverSrc = img.getAttribute("data-alt");
-
-    // placeholder captions
-    const originalCaption = "disneyland 2008";
-    const hoverCaption = "boston 2024";
-
-    img.addEventListener("mouseenter", () => {
-      img.src = hoverSrc;
-      caption.style.opacity = "0";
-      setTimeout(() => {
-        caption.textContent = hoverCaption;
-        caption.style.opacity = "1";
-      }, 200);
+    layers.forEach(function (layer, i) {
+      if (i > 0) {
+        var img = new Image();
+        img.src = layer.getAttribute("src");
+      }
     });
 
-    img.addEventListener("mouseleave", () => {
-      img.src = originalSrc;
-      caption.style.opacity = "0";
-      setTimeout(() => {
-        caption.textContent = originalCaption;
-        caption.style.opacity = "1";
-      }, 200);
+    function show(index) {
+      current = index;
+      stack.dataset.active = index;
+      layers.forEach(function (layer, i) {
+        layer.classList.toggle("is-active", i === index);
+        layer.setAttribute("aria-hidden", i !== index);
+      });
+    }
+
+    stack.addEventListener("mouseenter", function () {
+      stack.classList.add("is-hovered");
+      show((current + 1) % total);
+    });
+
+    stack.addEventListener("mouseleave", function () {
+      stack.classList.remove("is-hovered");
     });
   </script>
 
   <script>
-    // ---- Preload hover image so swap is instant ----
-    var preload = new Image();
-    preload.src = document.getElementById('twinsImage').getAttribute('data-alt');
-
-    // ---- Magnetic text: chars subtly pull toward cursor ----
     function wrapCharsInNode(node) {
       var nodes = Array.from(node.childNodes);
       nodes.forEach(function (child) {
         if (child.nodeType === 3) {
           var text = child.textContent;
           var frag = document.createDocumentFragment();
-          text.split('').forEach(function (c) {
-            var s = document.createElement('span');
-            s.className = 'char';
-            s.textContent = c === ' ' ? '\u00A0' : c;
+          text.split("").forEach(function (c) {
+            var s = document.createElement("span");
+            s.className = "char";
+            s.textContent = c === " " ? "\u00A0" : c;
             frag.appendChild(s);
           });
           node.replaceChild(frag, child);
@@ -157,14 +86,14 @@
       });
     }
 
-    var titleEl = document.getElementById('titleName');
+    var titleEl = document.getElementById("titleName");
     wrapCharsInNode(titleEl);
 
-    var chars = titleEl.querySelectorAll('.char');
+    var chars = titleEl.querySelectorAll(".char");
     var magneticRAF = null;
     var mouseX = 0, mouseY = 0;
 
-    document.addEventListener('mousemove', function (e) {
+    document.addEventListener("mousemove", function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
       if (!magneticRAF) {
@@ -184,9 +113,9 @@
         var dist = Math.sqrt(distX * distX + distY * distY);
         if (dist < 200) {
           var strength = (1 - dist / 200) * 8;
-          ch.style.transform = 'translate(' + (distX / dist) * strength + 'px, ' + (distY / dist) * strength + 'px)';
+          ch.style.transform = "translate(" + (distX / dist) * strength + "px, " + (distY / dist) * strength + "px)";
         } else if (ch.style.transform) {
-          ch.style.transform = '';
+          ch.style.transform = "";
         }
       }
     }

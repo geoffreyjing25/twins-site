@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interests — Albert Jing</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../albert-pages.css">
+</head>
+<body class="albert-subpage">
+    <div class="sub-shell">
+        <header class="sub-header">
+            <nav class="sub-nav">
+                <a href="/albert">albert</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/writings">writings</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/quotes">quotes</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/beliefs">beliefs</a>
+                <span class="sub-nav-sep">·</span>
+                <a href="/albert/interests" class="is-current">interests</a>
+            </nav>
+        </header>
+
+        <main class="sub-main">
+            <p class="sub-eyebrow">exploring</p>
+            <h1 class="sub-title">Interests</h1>
+
+            <ul class="interests-index">
+                <li class="interest-row">
+                    <button type="button" class="interest-toggle" aria-expanded="false">
+                        <span>Understanding incentives, then aligning them</span>
+                        <span class="interest-toggle-mark">+</span>
+                    </button>
+                    <div class="interest-detail">
+                        <p>Spontaneously signed up for game theory, an econ elective, in junior year of college. Ended up really liking it, bonus that I got pretty good at it.</p>
+                        <p>Hence, after the conclusion of the class I've continued learning independently. There's many frameworks game theory and human psychology teaches you, I've grouped up a few thoughts below that frame my learnings.</p>
+                        <p>Contrary to what people think, most systems don't fail from incompetence, but from misaligned incentives compounding over time. This is especially true for mature systems as opposed to early-stage. To make a system work in the first place, you need competence and hard work. To make a system continue working though, it usually shifts to holding the incentives that make or break it.</p>
+                        <p>Charlie Munger called it the "incentive-caused bias" problem. Upton Sinclair phrased it more bluntly: <em>"It is difficult to get a man to understand something when his salary depends upon his not understanding it."</em> I see instances of incentive-caused bias in some of the cases I've been on at work. You definitely see this everywhere though. Small teams, startups. Just look at deal-for-deal vanity revenue optimizing startups, or what's happening with companies like Delve.</p>
+                        <p>Take a sales team: if you pay sales on booked revenue only as opposed to retained revenue, you don't get a bad sales team, you get a rational one that closes any and all customers at all costs. The downstream is churn, support load, and fake growth. If you switch to retained revenue, behavior improves. But then if you have a terrible product, paying sales for retained revenue isn't fair. So it's pretty hard to find an optimal or perfect system. What good looks like often is just choosing tradeoffs.</p>
+                        <p>Formalized, this is just <strong>mechanism design,</strong> a subfield of game theory. Not really predicting behavior, but structuring environments so that self-interested actors produce desired outcomes anyway. One of the things I'm exploring is this. In the past, I found it interesting to manipulate and exploit a system I didn't design to win. That's still quite useful but nowadays I find it more interesting to design a strong environment where I feel the most natural winning, and one that promotes high quality, sustainable winning.</p>
+                        <p>Along similar lines, I talk to a lot of founders and teams who treat recruiting as purely a talent problem, find better people, raise the bar. I mean yeah sure, that's totally valid, but beyond that, it's worthwhile to also spend some time thinking about your systems. Rather than putting all your energy into fixing a person, design the right system where the best move for a selfish actor is the right move for the system. This is harder, but I really believe it's one of the best ways to ensure sustainability and scalability.</p>
+                        <p>I find the more I dive into human incentives and game theory, the better I understand human behavior and can make smarter decisions.</p>
+                        <p>If you're curious on learning more about game theory and incentives/decision making, I'd recommend reading these books.</p>
+                        <ul>
+                            <li>Thinking in Bets (decision-making under uncertainty)</li>
+                            <li>The Elephant in the Brain (hidden motives)</li>
+                            <li>Poor Charlie's Almanack (mental models; the 25 psychological biases explain a lot)</li>
+                        </ul>
+                        <p>If you have any cool system design models for anything from workflows to mental models, please reach out! Always happy to trade thoughts :)</p>
+                    </div>
+                </li>
+
+                <li class="interest-row">
+                    <button type="button" class="interest-toggle" aria-expanded="false">
+                        <span>Optimizing and/or automating legacy systems</span>
+                        <span class="interest-toggle-mark">+</span>
+                    </button>
+                    <div class="interest-detail">
+                        <p>Largely, legacy systems persist because they encode:</p>
+                        <ul>
+                            <li>compliance constraints</li>
+                            <li>institutional knowledge</li>
+                            <li>political compromises</li>
+                        </ul>
+                        <p>Well what does this mean. Means they're fragile, but also <strong>hard to replace outright.</strong></p>
+                        <p>Early last year, I spent some time deep-diving into wastewater treatment plants in Southeast Asia. Think large manual treatment plants in Vietnam with 50+ operators on a single plant. Working with two co-founders, we built an AI chatbot that regulates treatment processes and water quality, feeding real-time telemetry into a machine learning model trained on historical data.</p>
+                        <p>You'd still need an operator to regulate and communicate with the chatbot, but for things like emergencies, it can already flag issues and change chemical dosage levels. Our end goal to be building a fully autonomous ai agent that can oversee all waste water treatment processes without human oversight. After piloting in two plants in Vietnam, it became clear why automation hasn't scaled here the way it has in the West. In China, heavy regulatory constraints and government ownership of water utilities make radical automation politically and operationally complex. In Vietnam, complex regulatory oversight and deeply institutionalized operator knowledge mean outright replacement is risky and slow. In the end, we put the project in the backseat.</p>
+                        <p>The real leverage is not in "building something new" to replace entire existing systems, but to wrap, abstract, and gradually displace. Our technology was sound, the harder part is convincing legacy systems to willingly replace their decades-old, already compliant systems that already work with new unfamiliar tools.</p>
+                        <p>Past successful companies with similar playbooks like Stripe (simplifying payments rails instead of replacing them) and Palantir (layering on top of messy government data systems) interlaced improvements to existing systems rather than outright replacing them.</p>
+                        <p>The pattern shows up everywhere, anywhere from logistics or healthcare billing to SMB software (where I'm currently building in).</p>
+                    </div>
+                </li>
+
+                <li class="interest-row">
+                    <button type="button" class="interest-toggle" aria-expanded="false">
+                        <span>Adlerian Psychology</span>
+                        <span class="interest-toggle-mark">+</span>
+                    </button>
+                    <div class="interest-detail">
+                        <p>I don't know if I fully buy into Alfred Adler, but his framing is operationally useful. I found some of his beliefs to be mentally rewarding and changed my perspective.</p>
+                        <p>Adlerian psychology treats behavior as goal-directed rather than trauma-determined, which maps pretty naturally to incentive-driven thinking.</p>
+                        <p>This makes it in tune with two of my beliefs: people aren't broken due to their backgrounds, and humans pursue strategies (often subconsciously).</p>
+                        <p>Even if it's wrong, it's still a <strong>high-agency lens</strong>:</p>
+                        <ul>
+                            <li>responsibility over victimhood</li>
+                            <li>choice over determinism</li>
+                        </ul>
+                        <p>I recommend reading Courage to be Disliked if this school of thought sounds interesting.</p>
+                    </div>
+                </li>
+
+                <li class="interest-row">
+                    <button type="button" class="interest-toggle" aria-expanded="false">
+                        <span>US – China Race</span>
+                        <span class="interest-toggle-mark">+</span>
+                    </button>
+                    <div class="interest-detail">
+                        <p>I'm always interested in learning more about this race. Initially my beliefs aligned with the default Western model, which assumes inertia in global power. After doomscrolling IG reels, my beliefs shifted to power being measured from how much aura a world leader has from his handshakes (haha kidding…).</p>
+                        <p>Historically though, power transitions typically are due to industrial capacity, technological diffusion, and state coordination. On those axes, China is moving pretty fast. Look at its manufacturing depth, supply chain dominance, and applied AI + hardware integration. Sure it's lacking on software talent, and regulatory inefficiencies still pose a bottleneck, but its continued push for in-state independence on chips and autonomy for the full vertical will lead to full spectrum capability within a decade. I don't know if US can keep up given China's dominance on hardware and industrial depth, but that's what makes the next 5-10 years real exciting.</p>
+                        <p>Flip side though, the US still owns the parts that are hardest to copy. Frontier models and software talent, the deepest capital markets in the world, the dollar, and a web of alliances China just doesn't have. So while China's closing the gap on the physical and hardware layer, the US still sits on top of the value stack and the money. That's the real question to me — does China's industrial and deployment edge eventually beat the US's grip on capital, alliances, and the frontier AI layer, or not.</p>
+                        <p>Think tanks also focus on political and population based considerations. China's population is heavily skewed towards an older population and declining future labor market (which is one of their main advantages right now). Due to One-Child-Policy and low birth rates, its labor market is set to repeat South Korea and Japan. There's no stopping that in the next decade; it's more so how much they can mitigate the impact and if they can pivot and recover like Japan did. The US has the opposite problem in a good way — immigration keeps its labor market topped up, which is a quiet long-term edge China can't really replicate. I'm not very bullish on China being able to make a turnaround too fast, but am still optimistic on their position at the world stage. China is a clear second right now, miles ahead of India or European powers, and the world is already moving to a bipolar layout. Its GDP will climb to probably a peak within the next 10-15 years and then drop again when the labor shortage hits. Regardless, in the next century I find China has practically cemented its position. How much AI will impact this and who comes out in the AI race is yet to be determined, but I have my popcorn out.</p>
+                    </div>
+                </li>
+
+                <li class="interest-row">
+                    <button type="button" class="interest-toggle" aria-expanded="false">
+                        <span>Xunzian Confucianism</span>
+                        <span class="interest-toggle-mark">+</span>
+                    </button>
+                    <div class="interest-detail">
+                        <p>I don't think people are good by default.</p>
+                        <p>I think I started with some raw material that others also have: appetite, self-interest, the path of least resistance, and that left alone, that material doesn't bend toward good on its own.</p>
+                        <p>What makes someone good is deliberate: the environments you choose, the people who are willing to correct you, the structure you accept, the consequences you don't dodge, the temperance you put on yourself. This is what Xunzi believes. Human nature is unrefined, and virtue is something you build through effort rather than something you uncover.</p>
+                    </div>
+                </li>
+            </ul>
+        </main>
+
+        <footer class="sub-footer">
+            <p>&copy; jing twins <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        (function () {
+            var rows = document.querySelectorAll('.interest-row');
+
+            rows.forEach(function (row) {
+                var toggle = row.querySelector('.interest-toggle');
+
+                toggle.addEventListener('click', function () {
+                    var isOpen = row.classList.contains('is-open');
+
+                    rows.forEach(function (other) {
+                        other.classList.remove('is-open');
+                        other.querySelector('.interest-toggle').setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isOpen) {
+                        row.classList.add('is-open');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        })();
+    </script>
+    <script src="../../cursor.js"></script>
+</body>
+</html>
