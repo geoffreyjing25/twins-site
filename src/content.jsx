@@ -13,7 +13,7 @@ const GEOFFREY = {
     greeting: "Welcome.",
     paragraphs: [
       "I'm Geoffrey, welcome to my site. I most recently worked at Judgment Labs as the founding PM.",
-      "Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I interned in product & engineering roles at early-stage startups and Fortune 500 companies, and was a scout/fellow at Soma Capital, .406 Ventures, and V11. Now I'm exploring something new.",
+      "Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I interned in product & engineering roles at early-stage startups and Fortune 500 companies, and was a scout/fellow at Soma Capital, .406 Ventures, and V11.",
       "In my free time, I like to read, eat clean, play guitar, and participate in any activity that makes me sweat intensely.",
     ],
   },
