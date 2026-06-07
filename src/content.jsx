@@ -25,8 +25,8 @@ const GEOFFREY = {
   // },
   now: [
     { label: "Exploring",        value: "something new" },
-    { label: "Building",       value: "a side project for SMBs" },
-    { label: "Watching",         value: "Triple Crown" }, 
+    { label: "Tinkering",       value: "with agents for SMBs" },
+    { label: "Watching",         value: "Triple Crown" },
     { label: "Sweating through", value: "sauna" },
   ],
   links: [
