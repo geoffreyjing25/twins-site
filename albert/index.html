@@ -1,156 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Albert Jing</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    body {
-      background-color: #dfe5e1;
-    }
-
-    /* portrait shape & spacing */
-    .portrait {
-      width: 350px; /* slightly larger */
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 6rem auto 0.75rem; /* tightened bottom margin before caption */
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    /* toggle to rectangle by adding "is-rect" class */
-    .portrait.is-rect {
-      aspect-ratio: 4 / 3;
-      border-radius: 14px;
-    }
-
-    /* small caption under image */
-    .caption {
-      text-align: center;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin-bottom: 2rem; /* space before name */
-      transition: opacity 0.3s ease;
-    }
-
-    h2 {
-      font-size: 2.4rem;
-      margin: 0 0 0.4rem; /* slightly less margin for tighter spacing */
-      text-align: center;
-    }
-
-    .age-line {
-      text-align: center;
-      color: #6b7280;
-      margin-bottom: 0.6rem; /* reduced spacing to balance tagline gap */
-    }
-
-    .tagline {
-      text-align: center;
-      color: #6b7280;
-      margin: 0 0 1.5rem;
-    }
-
-    .bio {
-      max-width: 720px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-      color: #475569;
-      text-align: left;
-    }
-
-    b, strong {
-      font-weight: 700;
-      color: #1f2937;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Albert Jing</title>
+<meta name="description" content="Albert Jing. Associate at BCG, consumer and defense tech. Before that, product and engineering, and two startups.">
+<script>(function(){var c;try{c=localStorage.getItem('colorway')}catch(e){}var r=document.documentElement;r.dataset.colorway=c==='indigo'||c==='stone'?c:'paper';r.dataset.js=''})()</script>
+<link rel="preload" href="/albert/fonts/schibsted-grotesk/schibsted-grotesk-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" sizes="32x32" href="/albert/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/albert/favicon-192.png">
+<link rel="apple-touch-icon" href="/albert/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Albert Jing">
+<meta property="og:title" content="Albert Jing">
+<meta property="og:description" content="Albert Jing. Associate at BCG, consumer and defense tech. Before that, product and engineering, and two startups.">
+<meta property="og:url" content="https://jingtwins.com/albert/">
+<meta property="og:image" content="https://jingtwins.com/albert/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The red seal and the words albert jing on paper">
+<meta name="twitter:card" content="summary_large_image">
+  <script type="module" crossorigin src="/albert/assets/main-ClX1EYwT.js"></script>
+  <link rel="stylesheet" crossorigin href="/albert/assets/main-BeGxcK_D.css">
 </head>
-<body>
-  <div class="container">
-    <nav class="personal-nav">
-      <a href="#" class="link">about</a>
-      <a href="/albert/writings" class="link">writings</a>
-      <a href="/albert/quotes" class="link">quotes</a>
-      <a href="/albert/beliefs" class="link">beliefs</a>
-      <a href="/albert/interests" class="link">interests</a>
-    </nav>
-
-    <div class="personal-layout">
-      <!-- Add "is-rect" here if you want a rectangular portrait -->
-      <img src="../images/alb1.png" data-alt="../images/albert_2.jpg" alt="Albert Jing" class="portrait is-rect" id="albertImage" />
-      <p class="caption" id="imageCaption">ninh binh, vietnam. 2024</p>
-
-      <h2>Albert Jing</h2>
-      <p class="age-line">age: <span id="ageLive">—</span></p>
-
-      <p class="bio">
-        Hi I'm Albert.<br>
-        Most recently I worked on consumer and defense tech projects at BCG. Prior to that I founded a personal data monetization startup and worked in software, networking, and crypto domains in product, ops, &amp; engineering roles.<br><br>
-        In my free time, I stay active through basketball, golf, and tennis. I also thoroughly enjoy a good river walk. I am a fan of polyglots, underdog athletes, and contrarian investors.
-      </p>
-    </div>
-
-    <footer class="footer">
-      <p>&copy; Jing Twins <span id="currentYear"></span></p>
-    </footer>
-  </div>
-
-  <script>
-    // Footer year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Live age calculator (vanilla JS)
-    (function () {
-      const out = document.getElementById('ageLive');
-      if (!out) return;
-
-      const divisor = 365.2421897 * 24 * 60 * 60 * 1000;
-      const birthTime = new Date('2003-05-09T09:20:00');
-
-      function tick() {
-        const years = (Date.now() - birthTime.getTime()) / divisor;
-        out.textContent = years.toFixed(8);
-      }
-
-      tick();
-      const timer = setInterval(tick, 25);
-      window.addEventListener('beforeunload', () => clearInterval(timer));
-    })();
-
-    // Image hover swap
-    const img = document.getElementById('albertImage');
-    const caption = document.getElementById('imageCaption');
-
-    if (img && caption) {
-      const originalSrc = img.getAttribute('src');
-      const hoverSrc = img.getAttribute('data-alt');
-      const originalCaption = 'ninh binh, vietnam. 2024';
-      const hoverCaption = 'river in chengdu, china. 2024';
-
-      img.addEventListener('mouseenter', () => {
-        img.src = hoverSrc;
-        caption.style.opacity = '0';
-        setTimeout(() => {
-          caption.textContent = hoverCaption;
-          caption.style.opacity = '1';
-        }, 200);
-      });
-
-      img.addEventListener('mouseleave', () => {
-        img.src = originalSrc;
-        caption.style.opacity = '0';
-        setTimeout(() => {
-          caption.textContent = originalCaption;
-          caption.style.opacity = '1';
-        }, 200);
-      });
-    }
-  </script>
-  <script src="../cursor.js"></script>
+<body class="home" data-ink>
+<div class="page">
+<a class="seal" href="/albert/"><img src="/albert/img/seal.png" alt="Seal reading Albert Jing, home" width="46" height="46"></a>
+<div class="hero">
+  <div class="horse" data-horse role="img" aria-label="Han Gan's horse, Night-Shining White, in ink lines"></div>
+  <section class="intro">
+    <h1 class="hey" data-content>Hey, I'm Albert.</h1>
+    <p class="bio" data-content>Associate at BCG, consumer and defense tech. Before that, product and engineering, and two startups.</p>
+    <p class="bio more" data-content>In my free time, I stay active through basketball, golf, and tennis. I also thoroughly enjoy a good river walk. I am a fan of polyglots, underdog athletes, and contrarian investors.</p>
+  </section>
+</div>
+<main>
+<ol class="writings">
+  <li><a href="/albert/writings/qualities-i-admire-or-look-for/"><span class="t" data-content>Qualities I Admire or Look For</span><span class="y">2026</span></a></li>
+  <li><a href="/albert/writings/a-guide-on-learning/"><span class="t" data-content>A guide on learning</span><span class="y">2026</span></a></li>
+  <li><a href="/albert/writings/temperance/"><span class="t" data-content>Temperance</span><span class="y">2026</span></a></li>
+  <li><a href="/albert/writings/paradoxical-rafting/"><span class="t" data-content>Paradoxical Rafting</span><span class="y">2026</span></a></li>
+  <li><a href="/albert/writings/on-college/"><span class="t" data-content>On college (the importance and insignificance)</span><span class="y">2025</span></a></li>
+</ol>
+<p class="all"><a href="/albert/writings/">all writing</a></p>
+</main>
+<footer class="foot"><nav aria-label="more"><a href="/albert/about/">about</a> <a href="/albert/interests/">interests</a> <a href="/albert/quotes/">quotes</a> <a href="/albert/beliefs/">beliefs</a> <a href="mailto:albertjing1@gmail.com">email</a> <a href="https://www.linkedin.com/in/albert-jing/">linkedin</a> <a href="https://x.com/A1bertJing">x</a> <a href="https://github.com/Albert-Jing">github</a></nav> <span class="switch" role="group" aria-label="colorway"><button type="button" data-way="paper">paper</button><span aria-hidden="true"> · </span><button type="button" data-way="indigo">indigo</button><span aria-hidden="true"> · </span><button type="button" data-way="stone">ink stone</button></span></footer>
+</div>
 </body>
 </html>
