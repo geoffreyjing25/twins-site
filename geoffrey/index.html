@@ -1,53 +1,221 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Geoffrey Jing</title>
+<meta name="description" content="Currently I'm working on product at Sieve, exploring/scaling robotics data, operations, and research for physical AI.">
+<meta name="author" content="Geoffrey Jing">
+<link rel="canonical" href="https://jingtwins.com/geoffrey/">
+<meta name="theme-color" content="#ffffff">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Geoffrey Jing">
+<meta property="og:title" content="Geoffrey Jing">
+<meta property="og:description" content="Currently I'm working on product at Sieve, exploring/scaling robotics data, operations, and research for physical AI.">
+<meta property="og:url" content="https://jingtwins.com/geoffrey/">
+<meta property="og:image" content="https://jingtwins.com/geoffrey/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Geoffrey Jing: his name and a blue arc on white">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Geoffrey Jing">
+<meta name="twitter:description" content="Currently I'm working on product at Sieve, exploring/scaling robotics data, operations, and research for physical AI.">
+<meta name="twitter:image" content="https://jingtwins.com/geoffrey/assets/og.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-  html, body { margin: 0; padding: 0; height: 100%; }
-  body {
-    background: #f4ecdb;
-    color: #1a1a18;
-    font-family: 'Inter Tight', system-ui, sans-serif;
-    overflow-x: hidden;
+  /* Geoffrey Jing's homepage. A full-screen colour field that changes only when you click
+     (after Rafaël Rozendaal's intotime.com). Each click turns a page. The arc (after O-R-G)
+     steps back one page; clicking the same spot again steps forward. */
+  @font-face { font-family: "Atkinson Next"; src: url(assets/fonts/atkinson-hyperlegible-next-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Atkinson Next"; src: url(assets/fonts/atkinson-hyperlegible-next-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; overflow: hidden; background: #fff; color: #1f2ee0; font-family: "Atkinson Next", system-ui, sans-serif; font-size: 17px; line-height: 1.42; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+  #field {
+    position: fixed; inset: 0; background: var(--bg, #fff); color: var(--fg, #1f2ee0);
+    cursor: pointer; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
-  #root { min-height: 100vh; }
-  *::selection { background: #c45a3a; color: #f4ecdb; }
+
+  /* links: a hairline at rest, a moving squiggle on hover (borrowed from direction 06) */
+  a { color: inherit; text-decoration: none; position: relative; cursor: pointer; padding-bottom: 4px; }
+  a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
+  }
+  a:hover::after, a:focus-visible::after {
+    height: 6px; bottom: -2px;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") 0 0 / 12px 6px repeat-x;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") 0 0 / 12px 6px repeat-x;
+    animation: wiggle .5s linear infinite;
+  }
+  a:focus-visible { outline: none; }
+  @keyframes wiggle { to { -webkit-mask-position: 12px 0; mask-position: 12px 0; } }
+  /* touch screens: no hover, so links carry the squiggle at rest and it moves while pressed */
+  @media (hover: none) {
+    a::after { height: 6px; bottom: -2px;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") 0 0 / 12px 6px repeat-x;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") 0 0 / 12px 6px repeat-x; }
+    a:hover::after { animation: none; }
+    a:active::after { animation: wiggle .35s linear infinite; }
+  }
+
+  .top { position: absolute; top: 18px; left: 20px; right: 20px; display: flex; justify-content: space-between; gap: 16px; }
+  .top h1 { font: inherit; font-weight: 700; margin: 0; }
+  .top a::after { opacity: 0; }
+  .top a:hover::after, .top a:focus-visible::after { opacity: 1; }
+  #page { position: absolute; left: 20px; bottom: 20px; right: 20px; max-width: 31em; min-height: 6em; display: flex; align-items: flex-end; }
+  #page p { margin: 0; }
+  #page dl { margin: 0; display: grid; grid-template-columns: max-content max-content; gap: 2px 28px; }
+  #page dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  #page .stack > * { display: table; margin-bottom: 9px; }
+  #count { position: absolute; right: 20px; bottom: 20px; font-variant-numeric: tabular-nums; }
+
+  #arc { position: absolute; left: 50%; top: 45%; width: min(60vmin, 520px); height: min(60vmin, 520px); transform: translate(-50%, -50%); overflow: visible; pointer-events: none; }
+  #arc path { fill: none; stroke: currentColor; }
+  #hit { pointer-events: stroke; cursor: pointer; stroke-opacity: 0; outline: none; }
+  #hit:focus-visible { stroke-opacity: .22; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .top { flex-direction: column; gap: 0; }
+    #arc { top: 40%; width: 62vmin; height: 62vmin; }
+    #page { right: 64px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a:hover::after, a:focus-visible::after, a:active::after { animation: none !important; }
+  }
+
+  /* without JavaScript: everything on one quiet page */
+  .nojs { position: fixed; inset: 0; overflow: auto; background: #fff; color: #1f2ee0; padding: 20px; z-index: 5; }
+  .nojs p, .nojs dl { max-width: 31em; }
 </style>
 </head>
 <body>
-<div id="root"></div>
+<main id="field">
+  <div class="top">
+    <h1>Geoffrey <a href="../" title="jingtwins.com">Jing</a></h1>
+    <span>San Francisco <span id="clock">–:–– PT</span></span>
+  </div>
+  <p class="sr" id="how">Press the right arrow or space for the next page and the left arrow to go back. Click or tap anywhere to turn the page; the arc steps back.</p>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <svg id="arc" viewBox="-110 -110 220 220">
+    <path id="line" stroke-width="3.2" aria-hidden="true" />
+    <path id="hit" stroke-width="22" tabindex="0" role="button" aria-label="Step back, or forward again" aria-describedby="how" />
+  </svg>
 
-<script type="text/babel" src="../src/content.jsx"></script>
-<script type="text/babel" src="../src/SoundButton.jsx"></script>
-<script type="text/babel" src="../src/ThemeMinimal.jsx"></script>
-<script type="text/babel">
-  function MinimalPage() {
-    const GEOFFREY_TRACKS = [
-      // Replace each `id` with a real YouTube video id (the part after `v=`).
-      { title: "善恶终有报", artist: "揽佬", id: "yIKK_t6cYrk" },
-      // { title: "NEVADA (super slowed)", artist: "Vicetone", id: "YRW9b-Qf2x0" },
-      { title: "NƠI NÀY CÓ ANH", artist: "Son Tung M-TP", id: "FN7ALfpGxiI" },
-      { title: "Violin", artist: "Toneloom", id: "eZMcsmWnz44" },
-    ];
-    return (
-      <>
-        <window.ThemeMinimal />
-        <window.SoundButton tracks={GEOFFREY_TRACKS} />
-      </>
-    );
+  <div id="page" aria-live="polite"></div>
+  <div id="count" aria-hidden="true"></div>
+</main>
+
+<template id="pages">
+  <div><p>I'm Geoffrey, welcome to my site. Currently I'm working on product at Sieve, exploring/scaling robotics data, operations, and research for physical AI. Previously, I worked at Judgment Labs as the founding PM where I built evals and AI infra for agents.</p></div>
+  <div><p>Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I interned in product &amp; engineering roles at early-stage startups and Fortune 500 companies, and was a scout/fellow at Soma Capital, .406 Ventures, and V11.</p></div>
+  <div><p>In my free time, I like to tinker, eat clean, play guitar, and participate in any activity that makes me sweat intensely.</p></div>
+  <div><dl>
+    <dt>age</dt><dd class="age">23</dd>
+    <dt>countries</dt><dd>11</dd>
+    <dt>weekly saunas</dt><dd>3</dd>
+    <dt>oz of greek yogurt consumed per week</dt><dd>48</dd>
+  </dl></div>
+  <div class="stack">
+    <a href="https://www.linkedin.com/in/geoffreyjing/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    <a href="https://x.com/geoffrey__jing" target="_blank" rel="noreferrer">Twitter ↗</a>
+    <a href="mailto:jinggeoffrey@gmail.com">Email ↗</a>
+  </div>
+  <div class="stack"><span>— G.J.</span><span>© <span class="year">2026</span> · 37.77° N</span></div>
+</template>
+
+<noscript>
+  <div class="nojs">
+    <p><b>Geoffrey <a href="../">Jing</a></b> · San Francisco</p>
+    <p>I'm Geoffrey, welcome to my site. Currently I'm working on product at Sieve, exploring/scaling robotics data, operations, and research for physical AI. Previously, I worked at Judgment Labs as the founding PM where I built evals and AI infra for agents.</p>
+    <p>Prior to that, I was an AC within Bain PEG in the NYC office. Before that, I interned in product &amp; engineering roles at early-stage startups and Fortune 500 companies, and was a scout/fellow at Soma Capital, .406 Ventures, and V11.</p>
+    <p>In my free time, I like to tinker, eat clean, play guitar, and participate in any activity that makes me sweat intensely.</p>
+    <dl><dt>countries</dt><dd>11</dd><dt>weekly saunas</dt><dd>3</dd><dt>oz of greek yogurt consumed per week</dt><dd>48</dd></dl>
+    <p><a href="https://www.linkedin.com/in/geoffreyjing/">LinkedIn ↗</a> · <a href="https://x.com/geoffrey__jing">Twitter ↗</a> · <a href="mailto:jinggeoffrey@gmail.com">Email ↗</a></p>
+    <p>— G.J. · 37.77° N</p>
+  </div>
+</noscript>
+
+<script>
+  // Flat colour pairs [field, text]. 9 colours against 7 screens, so the pairing shifts every lap.
+  const colours = [
+    ['#ffffff', '#1f2ee0'], ['#1f2ee0', '#ffffff'], ['#cfe0d2', '#122a1c'],
+    ['#ff6a1a', '#1a0d05'], ['#0f3a2c', '#d9efe2'], ['#c7c1f0', '#1d1650'],
+    ['#8e908b', '#0e0e0e'], ['#111111', '#e8e8e8'], ['#9fd2f2', '#08263a'],
+  ];
+  const pages = [...document.getElementById('pages').content.children];
+  const field = document.getElementById('field');
+  const pageEl = document.getElementById('page');
+  const count = document.getElementById('count');
+  const meta = document.querySelector('meta[name="theme-color"]');
+
+  // history of visited states; pos points at the one on screen
+  let history = [0], pos = 0;
+
+  function arcPath(frac) {
+    const r = 100;
+    if (frac >= 0.999) return `M 0 ${-r} A ${r} ${r} 0 1 1 -0.01 ${-r}`;
+    // start at 12 o'clock and sweep clockwise, like a clock hand
+    const a = frac * 2 * Math.PI - Math.PI / 2;
+    const x = r * Math.cos(a), y = r * Math.sin(a);
+    return `M 0 ${-r} A ${r} ${r} 0 ${frac > 0.5 ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)}`;
   }
-  ReactDOM.createRoot(document.getElementById("root")).render(<MinimalPage />);
+  const frac = k => (k % (pages.length + 1) + 1) / (pages.length + 1); // a sliver on the first screen, a full circle on the last
+
+  function render() {
+    const n = history[pos];
+    const [bg, fg] = colours[n % colours.length];
+    field.style.setProperty('--bg', bg);
+    field.style.setProperty('--fg', fg);
+    document.body.style.background = bg;
+    meta.setAttribute('content', bg);
+    const p = n % (pages.length + 1); // page 0 is the name alone
+    pageEl.innerHTML = p === 0 ? '' : pages[p - 1].outerHTML;
+    count.textContent = p === 0 ? '' : `${p}/${pages.length}`;
+    document.getElementById('line').setAttribute('d', arcPath(frac(n)));
+    // after stepping back, keep the click target as long as the arc you came from, so the same spot steps forward again
+    const ahead = pos < history.length - 1 ? frac(history[pos + 1]) : 0;
+    document.getElementById('hit').setAttribute('d', arcPath(Math.max(frac(n), ahead)));
+    tick();
+  }
+
+  function next() { history = history.slice(0, pos + 1); history.push(history[pos] + 1); pos++; render(); }
+  function arc() { pos = pos === history.length - 1 && pos > 0 ? pos - 1 : Math.min(pos + 1, history.length - 1); render(); }
+  function back() { if (pos > 0) { pos--; render(); } }
+
+  field.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    if (e.target.id === 'hit') { arc(); return; }
+    next();
+  });
+  addEventListener('keydown', e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const onLink = e.target.closest && e.target.closest('a');
+    const onArc = e.target.id === 'hit';
+    if ((e.key === 'Enter' || e.key === ' ') && onArc) { e.preventDefault(); arc(); return; }
+    if ((e.key === 'Enter' || e.key === ' ') && onLink) return; // let links work
+    if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); back(); }
+  });
+
+  function tick() {
+    const d = new Date();
+    document.getElementById('clock').textContent = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles' }) + ' PT';
+    document.querySelectorAll('.year').forEach(e => e.textContent = d.getFullYear());
+    document.querySelectorAll('.age').forEach(e => e.textContent = d.getFullYear() - 2003); // as on the old site; see SUMMARY.md
+  }
+  render(); setInterval(tick, 1000);
 </script>
 </body>
 </html>
